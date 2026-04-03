@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sessions — Amethyst Healing Rooms</title>
+  <meta name="description" content="Reiki, sound healing, meditation and shamanic sessions with Janet Clifford in Cleckheaton, West Yorkshire.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ===== SESSIONS GRID ===== */
+    .sessions-wrap {
+      background: var(--void);
+      padding: clamp(4rem,9vw,7rem) clamp(1.5rem,5vw,4rem);
+    }
+    .sessions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: var(--acc-dim);
+    }
+    .s-card {
+      background: var(--deep);
+      padding: clamp(2rem,4vw,3rem);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+      transition: background 0.28s;
+    }
+    .s-card:hover { background: var(--mid); }
+    .s-card-full {
+      grid-column: 1 / -1;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* Illustration side */
+    .s-illus-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .s-illus {
+      width: 100%;
+      max-width: 180px;
+      aspect-ratio: 1;
+      color: var(--acc);
+      opacity: 0.78;
+    }
+    .s-photo {
+      overflow: hidden;
+      border: none;
+    }
+    .s-photo img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      opacity: 0.72;
+      transition: opacity 0.3s, transform 0.5s;
+    }
+    .s-card:hover .s-photo img { opacity: 0.92; transform: scale(1.03); }
+
+    /* Text side */
+    .s-text {}
+    .s-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      color: var(--acc);
+      opacity: 0.55;
+      margin-bottom: 0.75rem;
+    }
+    .s-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem,2.8vw,2.2rem);
+      font-weight: 400;
+      line-height: 1.18;
+      margin-bottom: 1rem;
+    }
+    .s-name em { color: var(--acc); }
+    .s-desc {
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: var(--tm);
+      margin-bottom: 1.25rem;
+    }
+    .s-note {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--td);
+      border-left: 1px solid var(--acc-dim);
+      padding-left: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    /* Intro band */
+    .sessions-intro {
+      background: var(--mid);
+      padding: clamp(3rem,6vw,5rem) clamp(1.5rem,5vw,4rem);
+      text-align: center;
+      border-bottom: 1px solid var(--acc-dim);
+    }
+    .sessions-intro-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .sessions-intro p {
+      font-size: clamp(0.88rem,1.5vw,1rem);
+      line-height: 1.96;
+      color: var(--tm);
+      margin-top: 1rem;
+    }
+
+    /* Booking band */
+    .booking-band {
+      background: var(--deep);
+      padding: clamp(3rem,6vw,5rem) clamp(1.5rem,5vw,4rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--acc-dim);
+    }
+    .booking-text h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem,3vw,2.2rem);
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+    .booking-text h3 em { color: var(--acc); }
+    .booking-text p {
+      font-size: 0.88rem;
+      line-height: 1.78;
+      color: var(--tm);
+      max-width: 460px;
+    }
+
+    @media (max-width: 900px) {
+      .s-card {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .s-card-full { grid-column: 1; }
+      .sessions-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .s-illus { max-width: 100px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Amethyst <span>Healing Rooms</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="sessions.html" class="active">Sessions</a></li>
+    <li><a href="community.html">Community</a></li>
+    <li><a href="training.html">Training</a></li>
+  </ul>
+  <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="nav-cta">Book a Session</a>
+  <button class="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('662905430_1283714103696995_5274060365378354566_n.jpg'); background-position: center 35%;"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <span class="eyebrow">The Practice</span>
+    <h1>How we <em>work</em> together</h1>
+  </div>
+</div>
+
+<!-- INTRO BAND -->
+<div class="sessions-intro">
+  <div class="sessions-intro-inner">
+    <span class="eyebrow rv">Janet's Approach</span>
+    <h2 class="sec-title rv d1" style="font-size:clamp(1.6rem,3.5vw,2.4rem);">Every session is <em>intuition-led.</em></h2>
+    <p class="rv d2">
+      Janet doesn't follow a fixed protocol. She uses crystals, tuning forks and the
+      shamanic drum when the energy calls for them. Pricing is equally intuitive.
+      No rigid price list. Each session is shaped by what that person needs.
+    </p>
+  </div>
+</div>
+
+<!-- SESSIONS -->
+<div class="sessions-wrap">
+  <div class="sessions-grid">
+
+    <!-- 01 REIKI -->
+    <div class="s-card rv" id="reiki">
+      <div class="s-illus-wrap">
+        <svg class="s-illus" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="28" stroke="currentColor" stroke-width="0.7" opacity="0.28"/>
+          <circle cx="40" cy="40" r="8" stroke="currentColor" stroke-width="1.2"/>
+          <ellipse cx="40" cy="21" rx="5" ry="10" stroke="currentColor" stroke-width="1.1"/>
+          <ellipse cx="40" cy="21" rx="5" ry="10" stroke="currentColor" stroke-width="1.1" transform="rotate(60 40 40)"/>
+          <ellipse cx="40" cy="21" rx="5" ry="10" stroke="currentColor" stroke-width="1.1" transform="rotate(120 40 40)"/>
+          <ellipse cx="40" cy="21" rx="5" ry="10" stroke="currentColor" stroke-width="1.1" transform="rotate(180 40 40)"/>
+          <ellipse cx="40" cy="21" rx="5" ry="10" stroke="currentColor" stroke-width="1.1" transform="rotate(240 40 40)"/>
+          <ellipse cx="40" cy="21" rx="5" ry="10" stroke="currentColor" stroke-width="1.1" transform="rotate(300 40 40)"/>
+          <circle cx="40" cy="40" r="2.5" fill="currentColor"/>
+        </svg>
+        <div class="s-photo">
+          <img src="657459252_980108297830778_6736310075188424402_n.jpg"
+               alt="Janet giving a reiki healing session">
+        </div>
+      </div>
+      <div class="s-text">
+        <p class="s-num">01</p>
+        <h2 class="s-name">Reiki <em>Healing</em></h2>
+        <p class="s-desc">
+          Reiki is a Japanese technique for stress reduction and relaxation
+          that promotes healing. It works with the universal life energy that
+          flows through all living things, channelled through gentle touch.
+        </p>
+        <p class="s-desc">
+          Janet may incorporate crystals, tuning forks or the shamanic drum
+          into a session depending on what arises. No two sessions are identical.
+          You arrive as you are and leave as something shifts.
+        </p>
+        <p class="s-note">
+          "Each session is shaped by what that person needs in that moment."
+        </p>
+      </div>
+    </div>
+
+    <!-- 02 SOUND HEALING 1:1 -->
+    <div class="s-card rv d1" id="sound-reiki">
+      <div class="s-illus-wrap">
+        <svg class="s-illus" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="40" y1="68" x2="40" y2="44" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M27,44 L27,30 Q27,18 40,18 Q53,18 53,30 L53,44" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+          <path d="M22,46 Q15,38 22,30" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.65"/>
+          <path d="M15,50 Q4,38 15,26" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.35"/>
+          <path d="M58,46 Q65,38 58,30" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.65"/>
+          <path d="M65,50 Q76,38 65,26" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.35"/>
+        </svg>
+        <div class="s-photo">
+          <img src="661814062_883919804671326_3771866821382765937_n.jpg"
+               alt="Tuning forks used in sound healing">
+        </div>
+      </div>
+      <div class="s-text">
+        <p class="s-num">02</p>
+        <h2 class="s-name">Reiki and <em>Sound Healing</em></h2>
+        <p class="s-desc">
+          A private 1:1 session that combines the gentle holding power of reiki
+          with therapeutic sound. Tuning forks calibrated to specific frequencies
+          are placed on or near the body. The gong and crystal bowls may also
+          be used.
+        </p>
+        <p class="s-desc">
+          Sound works on a cellular level, loosening what is held tight.
+          Reiki holds the space for it to release. Together they are deeply
+          restorative. Most people describe leaving re-tuned.
+        </p>
+        <p class="s-note">
+          Suitable for those new to both practices and experienced alike.
+        </p>
+      </div>
+    </div>
+
+    <!-- 03 MEDITATION AND SOUND -->
+    <div class="s-card rv" id="meditation">
+      <div class="s-illus-wrap">
+        <svg class="s-illus" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18,54 Q18,70 40,70 Q62,70 62,54" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <ellipse cx="40" cy="54" rx="22" ry="6" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="30" y1="70" x2="50" y2="70" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M40,48 Q34,42 40,36 Q46,30 40,22" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.62"/>
+          <path d="M33,48 Q23,39 33,29" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.36"/>
+          <path d="M47,48 Q57,39 47,29" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.36"/>
+          <line x1="56" y1="67" x2="65" y2="52" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="65" cy="50" r="3" stroke="currentColor" stroke-width="1.1"/>
+        </svg>
+        <div class="s-photo">
+          <img src="662905430_1283714103696995_5274060365378354566_n.jpg"
+               alt="Janet playing crystal singing bowls">
+        </div>
+      </div>
+      <div class="s-text">
+        <p class="s-num">03</p>
+        <h2 class="s-name">Meditation and <em>Sound Healing</em></h2>
+        <p class="s-desc">
+          Small group sessions of up to six people. Janet plays crystal singing
+          bowls and gong, creating a soundscape that the body simply surrenders into.
+          No meditation experience is needed. You lie down, close your eyes,
+          and let the sound do the work.
+        </p>
+        <p class="s-desc">
+          The crystal bowls are each tuned to different frequencies corresponding
+          to the body's energy centres. The gong clears and resets. Most people
+          describe an experience they feel for days afterwards.
+        </p>
+        <p class="s-note">
+          Maximum 6 per session. A genuinely intimate experience.
+        </p>
+      </div>
+    </div>
+
+    <!-- 04 SOUND GROUP -->
+    <div class="s-card rv d1" id="sound-group">
+      <div class="s-illus-wrap">
+        <svg class="s-illus" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="5" stroke="currentColor" stroke-width="1.1"/>
+          <circle cx="40" cy="13" r="4" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M37,17 Q37,24 40,24 Q43,24 43,17" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+          <circle cx="62" cy="25" r="4" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M59,29 Q59,36 62,36 Q65,36 65,29" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+          <circle cx="55" cy="61" r="4" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M52,65 L55,72 L58,65" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="25" cy="61" r="4" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M22,65 L25,72 L28,65" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="18" cy="25" r="4" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M15,29 Q15,36 18,36 Q21,36 21,29" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+          <line x1="40" y1="17" x2="40" y2="35" stroke="currentColor" stroke-width="0.55" opacity="0.4"/>
+          <line x1="58" y1="29" x2="44" y2="37" stroke="currentColor" stroke-width="0.55" opacity="0.4"/>
+          <line x1="52" y1="57" x2="43" y2="44" stroke="currentColor" stroke-width="0.55" opacity="0.4"/>
+          <line x1="28" y1="57" x2="37" y2="44" stroke="currentColor" stroke-width="0.55" opacity="0.4"/>
+          <line x1="22" y1="29" x2="36" y2="37" stroke="currentColor" stroke-width="0.55" opacity="0.4"/>
+        </svg>
+      </div>
+      <div class="s-text">
+        <p class="s-num">04</p>
+        <h2 class="s-name">Monthly Sound Healing <em>Group</em></h2>
+        <p class="s-desc">
+          Open monthly community sound healing sessions held at a local gathering
+          space in Cleckheaton. Open to everyone. No previous experience needed
+          and no booking required, just turn up.
+        </p>
+        <p class="s-desc">
+          The collective experience of sound is different to a private session.
+          There is something that happens when a group of people surrender to the
+          same frequency at the same time. It has its own kind of power.
+        </p>
+        <p class="s-note">
+          Check Facebook for upcoming dates and location details.
+        </p>
+      </div>
+    </div>
+
+    <!-- 05 SHAMANIC DRUM -->
+    <div class="s-card rv" id="shamanic">
+      <div class="s-illus-wrap">
+        <svg class="s-illus" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="30" stroke="currentColor" stroke-width="1.4"/>
+          <circle cx="40" cy="40" r="22" stroke="currentColor" stroke-width="0.55" opacity="0.45"/>
+          <path d="M40,40 Q44,36 44,40 Q44,46 40,48 Q34,48 32,42 Q30,34 36,30 Q44,27 50,34 Q55,42 52,52 Q47,61 37,61 Q24,59 22,47 Q20,33 30,25"
+                stroke="currentColor" stroke-width="1.15" stroke-linecap="round" fill="none"/>
+          <line x1="40" y1="10" x2="40" y2="70" stroke="currentColor" stroke-width="0.45" opacity="0.22"/>
+          <line x1="10" y1="40" x2="70" y2="40" stroke="currentColor" stroke-width="0.45" opacity="0.22"/>
+        </svg>
+      </div>
+      <div class="s-text">
+        <p class="s-num">05</p>
+        <h2 class="s-name">Monthly Shamanic <em>Drumming</em></h2>
+        <p class="s-desc">
+          The drum is the oldest healing technology we know. Across every
+          ancient culture, the rhythmic beat of the drum was the bridge between
+          ordinary consciousness and the deeper layers of the self.
+        </p>
+        <p class="s-desc">
+          Janet hosts monthly shamanic drumming circles at a local community
+          space in Cleckheaton. No experience needed. You do not need to
+          understand it before you come. You only need to be willing to
+          be present.
+        </p>
+        <p class="s-note">
+          Check Facebook for upcoming dates and location details.
+        </p>
+      </div>
+    </div>
+
+    <!-- 06 TRAINING -->
+    <div class="s-card rv d1" id="training-card">
+      <div class="s-illus-wrap">
+        <svg class="s-illus" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="40" y1="10" x2="40" y2="28" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M34,16 L40,10 L46,16" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="40" cy="40" r="6" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="40" y1="28" x2="40" y2="34" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
+          <line x1="40" y1="46" x2="40" y2="52" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
+          <line x1="28" y1="40" x2="34" y2="40" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
+          <line x1="46" y1="40" x2="52" y2="40" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
+          <line x1="32" y1="32" x2="36" y2="36" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
+          <line x1="44" y1="44" x2="48" y2="48" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
+          <line x1="48" y1="32" x2="44" y2="36" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
+          <line x1="36" y1="44" x2="32" y2="48" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
+          <line x1="40" y1="52" x2="40" y2="70" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M34,64 L40,70 L46,64" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="24" cy="62" r="2.8" stroke="currentColor" stroke-width="1"/>
+          <circle cx="56" cy="62" r="2.8" stroke="currentColor" stroke-width="1"/>
+          <line x1="32" y1="65" x2="27" y2="62" stroke="currentColor" stroke-width="0.55" opacity="0.5"/>
+          <line x1="48" y1="65" x2="53" y2="62" stroke="currentColor" stroke-width="0.55" opacity="0.5"/>
+        </svg>
+        <div class="s-photo">
+          <img src="660918044_1488880446182221_7940801639890761241_n.jpg"
+               alt="Connection with earth energy at an ancient tree">
+        </div>
+      </div>
+      <div class="s-text">
+        <p class="s-num">06</p>
+        <h2 class="s-name">Usui Reiki <em>Training</em></h2>
+        <p class="s-desc">
+          Janet's greatest passion. Teaching Usui Reiki and passing on
+          the gift of energy healing to others is her deepest calling.
+          She offers training at all levels, from complete beginners
+          through to Reiki Master.
+        </p>
+        <p class="s-desc">
+          Training is much more than learning a technique. Janet describes
+          it as helping people remember something that was already in them.
+          Many of her students have gone on to become practitioners themselves,
+          joining the wider Amethyst community.
+        </p>
+        <a href="training.html" class="btn-outline-dark" style="margin-top:0.5rem;">Full details on the training page</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- BOOKING BAND -->
+<div class="booking-band">
+  <div class="booking-text rv">
+    <h3>Ready to <em>begin?</em></h3>
+    <p>
+      Reach out via Facebook to discuss what session is right for you,
+      or to check dates for the monthly groups. Janet will guide you to
+      whatever the energy calls for.
+    </p>
+  </div>
+  <div class="rv d1" style="display:flex; gap:1rem; flex-wrap:wrap; flex-shrink:0;">
+    <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="btn-solid">Book via Facebook</a>
+    <a href="training.html" class="btn-outline">Reiki Training</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h2>Amethyst <em>Healing Rooms</em></h2>
+      <p class="footer-tag">
+        A place where everyone comes together through an awareness of
+        the energy that connects us all, and the love that we truly are.
+        Cleckheaton, West Yorkshire.
+      </p>
+      <p class="footer-copy">2025 Amethyst Healing Rooms. Janet Clifford.</p>
+    </div>
+    <nav class="footer-nav">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sessions.html">Sessions</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="training.html">Reiki Training</a></li>
+      </ul>
+    </nav>
+    <nav class="footer-nav">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.instagram.com/sham69" target="_blank" rel="noopener">Instagram: @sham69</a></li>
+        <li><a href="#" style="cursor:default;">Cleckheaton, BD12 7HG</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community — Amethyst Healing Rooms</title>
+  <meta name="description" content="The Amethyst tribe. Monthly reiki shares, sound healing groups and shamanic drumming circles in Cleckheaton.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ===== TRIBE INTRO ===== */
+    #tribe {
+      background: var(--parch);
+      color: var(--ink);
+      padding: clamp(5rem,10vw,8rem) clamp(1.5rem,5vw,4rem);
+    }
+    .tribe-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem,6vw,5.5rem);
+      max-width: 1160px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .tribe-hl {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem,6.5vw,4.8rem);
+      font-weight: 300;
+      line-height: 1.06;
+      color: var(--ink);
+      margin: 0.75rem 0 1.5rem;
+    }
+    .tribe-hl em { color: var(--acc); }
+    .tribe-body {
+      font-size: 0.92rem;
+      line-height: 1.96;
+      color: var(--ink2);
+      margin-bottom: 1.25rem;
+    }
+    .tribe-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .tribe-photo {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      position: relative;
+    }
+    .tribe-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+    }
+    .tribe-photo:hover img { transform: scale(1.04); }
+    .tribe-placeholder {
+      width: 100%;
+      height: 100%;
+      background: rgba(160,125,196,0.07);
+      border: 1px dashed rgba(160,125,196,0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .tribe-placeholder p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.88rem;
+      font-style: italic;
+      color: var(--acc);
+      opacity: 0.6;
+      line-height: 1.6;
+    }
+    .tribe-photo-wide {
+      grid-column: 1 / -1;
+      aspect-ratio: 16/9;
+    }
+    .tribe-photo-wide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ===== REIKI SHARE ===== */
+    #share {
+      background: var(--mid);
+      padding: clamp(5rem,10vw,8rem) clamp(1.5rem,5vw,4rem);
+    }
+    .share-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem,6vw,5.5rem);
+      max-width: 1160px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    .share-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .share-hl {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem,4.5vw,3.4rem);
+      font-weight: 300;
+      line-height: 1.12;
+      margin: 0.75rem 0 1.25rem;
+    }
+    .share-hl em { color: var(--gold); }
+    .share-body {
+      font-size: 0.92rem;
+      line-height: 1.96;
+      color: var(--tm);
+      margin-bottom: 1.25rem;
+    }
+
+    /* ===== GATHERINGS ===== */
+    #gatherings {
+      background: var(--deep);
+      padding: clamp(5rem,10vw,8rem) clamp(1.5rem,5vw,4rem);
+    }
+    .gatherings-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      max-width: 1000px;
+      margin: 3rem auto 0;
+      background: var(--acc-dim);
+    }
+    .g-card {
+      background: var(--mid);
+      padding: clamp(2.5rem,5vw,3.5rem);
+      transition: background 0.28s;
+    }
+    .g-card:hover { background: var(--surface); }
+    .g-sym {
+      font-size: 2.2rem;
+      display: block;
+      margin-bottom: 1.5rem;
+      color: var(--tm);
+    }
+    .g-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--acc);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .g-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem,3vw,2.3rem);
+      font-weight: 400;
+      line-height: 1.18;
+      margin-bottom: 1rem;
+    }
+    .g-title em { color: var(--gold); }
+    .g-desc {
+      font-size: 0.88rem;
+      line-height: 1.88;
+      color: var(--tm);
+      margin-bottom: 1.5rem;
+    }
+    .g-meta {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.75;
+    }
+
+    /* ===== OBJECTS STRIP ===== */
+    #objects {
+      background: var(--void);
+      padding: clamp(4rem,8vw,6rem) clamp(1.5rem,5vw,4rem) 0;
+    }
+    .objects-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      max-width: 1200px;
+      margin: 2.5rem auto 0;
+      background: var(--acc-dim);
+    }
+    .obj-item { overflow: hidden; }
+    .obj-item img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      filter: brightness(0.72) saturate(0.82);
+      transition: transform 0.55s, filter 0.55s;
+    }
+    .obj-item:hover img { transform: scale(1.04); filter: brightness(0.94) saturate(1.1); }
+
+    /* ===== TESTIMONIALS ===== */
+    #testimonials {
+      background: var(--void);
+      padding: clamp(5rem,10vw,8rem) clamp(1.5rem,5vw,4rem);
+      text-align: center;
+    }
+    .test-placeholder {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.95rem,2vw,1.15rem);
+      font-style: italic;
+      color: var(--td);
+      border: 1px dashed rgba(160,125,196,0.18);
+      padding: clamp(2.5rem,5vw,3.5rem);
+      max-width: 600px;
+      margin: 2.5rem auto 2rem;
+      line-height: 1.82;
+    }
+
+    @media (max-width: 768px) {
+      .tribe-grid,
+      .share-inner,
+      .gatherings-grid { grid-template-columns: 1fr; }
+      .tribe-photos { grid-template-columns: 1fr; }
+      .objects-strip { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .objects-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Amethyst <span>Healing Rooms</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="sessions.html">Sessions</a></li>
+    <li><a href="community.html" class="active">Community</a></li>
+    <li><a href="training.html">Training</a></li>
+  </ul>
+  <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="nav-cta">Book a Session</a>
+  <button class="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('657253396_1440155630983374_4627450917287759395_n.jpg'); background-position: center 40%;"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <span class="eyebrow">The Tribe</span>
+    <h1>More than a practice.<br>A <em>community.</em></h1>
+  </div>
+</div>
+
+<!-- THE TRIBE -->
+<section id="tribe">
+  <div class="tribe-grid">
+    <div class="rv">
+      <span class="eyebrow" style="color:var(--acc);">Who We Are</span>
+      <h2 class="tribe-hl">
+        A lineage of<br>love and <em>energy.</em>
+      </h2>
+      <p class="tribe-body">
+        Over many years, Janet has trained and attuned people to Reiki.
+        Several of them are now practitioners themselves. Together they form
+        something rare in the wellness world: a genuine tribe. Not a brand.
+        Not a directory. A living community of people who felt the energy,
+        had their spark awakened, and chose to carry it forward.
+      </p>
+      <p class="tribe-body">
+        This is exactly what Janet set out to build. A place where everyone
+        comes together through an awareness of the energy that connects us all,
+        and the love that we truly are. No hierarchy. No judgement.
+        Just safety, warmth and the deep knowing that you are not alone in this.
+      </p>
+      <p class="tribe-body">
+        Whether you come as a complete beginner or a seasoned practitioner,
+        you are welcome here. The door is always open.
+      </p>
+      <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="btn-outline-dark" style="margin-top:0.75rem;">
+        Join the community
+      </a>
+    </div>
+    <div class="tribe-photos rv d1">
+      <div class="tribe-photo">
+        <img src="657449893_1251848930348039_2464343206332712562_n.jpg"
+             alt="Sacred garden space">
+      </div>
+      <div class="tribe-photo">
+        <div class="tribe-placeholder">
+          <p>Tribe photo<br>coming soon</p>
+        </div>
+      </div>
+      <div class="tribe-photo tribe-photo-wide">
+        <div class="tribe-placeholder" style="aspect-ratio:16/9;">
+          <p>Community gathering photo<br>coming soon</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MONTHLY REIKI SHARE -->
+<section id="share">
+  <div class="share-inner">
+    <div class="rv">
+      <img src="662905430_1283714103696995_5274060365378354566_n.jpg"
+           class="share-img" alt="Janet playing crystal singing bowls in the healing room">
+    </div>
+    <div class="rv d1">
+      <span class="eyebrow">Monthly Event</span>
+      <h2 class="share-hl">
+        The Reiki <em>Share</em>
+      </h2>
+      <p class="share-body">
+        Once a month, the Amethyst community comes together to share reiki
+        energy. It is simple: everyone gives and everyone receives.
+        Practitioners and newcomers sit in circle together. There is no
+        performance and no pressure. Just people holding space for one
+        another in the most genuine way.
+      </p>
+      <p class="share-body">
+        The reiki share is the heartbeat of this community. It is where
+        connections are made, where the energy deepens, and where people
+        who came alone discover they were never really alone at all.
+      </p>
+      <p class="share-body">
+        All are welcome, whether you have been attuned to reiki or not.
+        Janet will guide you through what to expect before you arrive.
+      </p>
+      <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="btn-solid">
+        Join the next share
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- GATHERINGS -->
+<section id="gatherings">
+  <div style="max-width:1000px; margin:0 auto; text-align:center;">
+    <span class="eyebrow rv">Monthly Gatherings</span>
+    <h2 class="sec-title rv d1" style="margin-top:0.8rem;">Open doors.<br><em>Open hearts.</em></h2>
+    <p class="sec-sub rv d2" style="max-width:560px; margin:1rem auto 0;">
+      Two regular community events at local spaces in Cleckheaton.
+      Come once. Come always.
+    </p>
+  </div>
+  <div class="gatherings-grid">
+    <div class="g-card rv">
+      <span class="g-sym">◎</span>
+      <span class="g-label">Monthly · Community</span>
+      <h3 class="g-title">Sound Healing <em>Circle</em></h3>
+      <p class="g-desc">
+        Crystal bowls and gong fill the room with sound that works on a
+        cellular level. A shared experience of deep relaxation, release
+        and renewal. No experience needed and nothing to bring except
+        yourself and an open mind.
+      </p>
+      <p class="g-meta">Monthly · Community space, Cleckheaton</p>
+    </div>
+    <div class="g-card rv d1">
+      <span class="g-sym">∿</span>
+      <span class="g-label">Monthly · Community</span>
+      <h3 class="g-title">Shamanic <em>Drumming</em></h3>
+      <p class="g-desc">
+        The oldest technology of transformation known to humanity. The
+        rhythm of the drum opens a door. You do not need to know what is
+        behind it before you step through. No experience needed. Just
+        come and be present to what arises.
+      </p>
+      <p class="g-meta">Monthly · Community space, Cleckheaton</p>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:2.5rem;" class="rv">
+    <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="btn-outline">
+      Check upcoming dates on Facebook
+    </a>
+  </div>
+</section>
+
+<!-- SACRED OBJECTS -->
+<section id="objects">
+  <div style="max-width:900px; margin:0 auto; text-align:center;">
+    <span class="eyebrow rv">Sacred Tools</span>
+    <h2 class="sec-title rv d1" style="margin-top:0.75rem;">The <em>instruments</em></h2>
+  </div>
+  <div class="objects-strip">
+    <div class="obj-item rv">
+      <img src="657659780_953327130425197_1530954544285871400_n.jpg"
+           alt="Amethyst crystal geode">
+    </div>
+    <div class="obj-item rv d1">
+      <img src="661814062_883919804671326_3771866821382765937_n.jpg"
+           alt="Tuning forks on blue velvet">
+    </div>
+    <div class="obj-item rv d2">
+      <img src="662411789_1910433369663995_7386933960829627463_n.jpg"
+           alt="Connection with nature">
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <span class="eyebrow rv">What People Say</span>
+  <h2 class="sec-title rv d1" style="margin-top:0.75rem;">Words from the <em>community</em></h2>
+  <div class="test-placeholder rv d2">
+    Testimonials coming soon.<br>
+    Visit the Amethyst Healing Rooms Facebook page to read
+    reviews from the community.
+  </div>
+  <div style="text-align:center;" class="rv d3">
+    <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="btn-outline">
+      Read reviews on Facebook
+    </a>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div class="cta-inner">
+    <span class="eyebrow rv">You Are Welcome Here</span>
+    <h2 class="cta-hl rv d1">Come and feel<br>the <em>energy.</em></h2>
+    <p class="cta-sub rv d2">
+      Every gathering is a new beginning for someone. It might be yours.
+    </p>
+    <div class="cta-btns rv d3">
+      <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="btn-solid">Connect on Facebook</a>
+      <a href="training.html" class="btn-outline">Learn Reiki yourself</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h2>Amethyst <em>Healing Rooms</em></h2>
+      <p class="footer-tag">
+        A place where everyone comes together through an awareness of
+        the energy that connects us all, and the love that we truly are.
+        Cleckheaton, West Yorkshire.
+      </p>
+      <p class="footer-copy">2025 Amethyst Healing Rooms. Janet Clifford.</p>
+    </div>
+    <nav class="footer-nav">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sessions.html">Sessions</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="training.html">Reiki Training</a></li>
+      </ul>
+    </nav>
+    <nav class="footer-nav">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.instagram.com/sham69" target="_blank" rel="noopener">Instagram: @sham69</a></li>
+        <li><a href="#" style="cursor:default;">Cleckheaton, BD12 7HG</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

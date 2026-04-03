@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reiki Training — Amethyst Healing Rooms</title>
+  <meta name="description" content="Learn Usui Reiki with Janet Clifford in Cleckheaton. All levels from beginner to Reiki Master. Awaken the healer within you.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ===== TRAINING INTRO ===== */
+    #intro {
+      background: var(--cream);
+      color: var(--ink);
+      padding: clamp(5rem,10vw,8rem) clamp(1.5rem,5vw,4rem);
+    }
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: clamp(3rem,7vw,6.5rem);
+      max-width: 1160px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    .intro-img-wrap { position: relative; }
+    .intro-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .intro-badge {
+      position: absolute;
+      bottom: -1rem;
+      right: -1rem;
+      background: var(--acc);
+      color: var(--void);
+      padding: 1.4rem 1.6rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.82rem;
+      font-style: italic;
+      line-height: 1.5;
+      text-align: center;
+      min-width: 128px;
+    }
+    .intro-hl {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem,5vw,3.8rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--ink);
+      margin: 0.8rem 0 1.5rem;
+    }
+    .intro-hl em { color: var(--acc); }
+    .intro-body {
+      font-size: 0.92rem;
+      line-height: 1.96;
+      color: var(--ink2);
+      margin-bottom: 1.25rem;
+    }
+    .intro-pull {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem,2.8vw,1.9rem);
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--ink);
+      border-left: 2px solid var(--acc);
+      padding-left: 1.5rem;
+      margin: 1.75rem 0;
+    }
+
+    /* ===== LEVELS ===== */
+    #levels {
+      background: var(--void);
+      padding: clamp(5rem,10vw,8rem) clamp(1.5rem,5vw,4rem);
+    }
+    .levels-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      max-width: 1100px;
+      margin: 3rem auto 0;
+      background: var(--acc-dim);
+    }
+    .level-card {
+      background: var(--deep);
+      padding: clamp(2rem,4vw,3rem);
+      transition: background 0.28s;
+    }
+    .level-card:hover { background: var(--mid); }
+    .level-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem,5vw,4.5rem);
+      font-weight: 300;
+      color: var(--acc);
+      opacity: 0.35;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .level-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem,2.5vw,1.9rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .level-name em { color: var(--acc); }
+    .level-jp {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--acc);
+      opacity: 0.6;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+    .level-desc {
+      font-size: 0.87rem;
+      line-height: 1.88;
+      color: var(--tm);
+    }
+
+    /* ===== PHILOSOPHY ===== */
+    #philosophy {
+      position: relative;
+      background: var(--deep);
+      padding: clamp(5.5rem,12vw,9rem) clamp(1.5rem,5vw,4rem);
+      text-align: center;
+      overflow: hidden;
+    }
+    #philosophy::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('660918044_1488880446182221_7940801639890761241_n.jpg');
+      background-size: cover;
+      background-position: center top;
+      opacity: 0.08;
+    }
+    .philosophy-inner { position: relative; max-width: 720px; margin: 0 auto; }
+    .philosophy-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.85rem,5vw,3.2rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.44;
+      color: var(--tl);
+      margin: 1.5rem 0 2rem;
+    }
+    .philosophy-quote em { font-style: normal; color: var(--acc); }
+    .philosophy-body {
+      font-size: clamp(0.88rem,1.5vw,0.97rem);
+      line-height: 1.96;
+      color: var(--tm);
+      max-width: 560px;
+      margin: 0 auto 1.25rem;
+    }
+
+    /* ===== WHAT TO EXPECT ===== */
+    #expect {
+      background: var(--parch);
+      color: var(--ink);
+      padding: clamp(5rem,10vw,8rem) clamp(1.5rem,5vw,4rem);
+    }
+    .expect-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .expect-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .expect-item {
+      background: rgba(160,125,196,0.07);
+      border: 1px solid rgba(160,125,196,0.18);
+      padding: clamp(1.75rem,3.5vw,2.5rem);
+    }
+    .expect-icon {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      display: block;
+      color: var(--acc);
+    }
+    .expect-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.25rem,2.2vw,1.6rem);
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+    .expect-title em { color: var(--acc); }
+    .expect-body {
+      font-size: 0.88rem;
+      line-height: 1.88;
+      color: var(--ink2);
+    }
+
+    /* ===== TRIBE TRAIL ===== */
+    #tribe-trail {
+      background: var(--mid);
+      padding: clamp(5rem,10vw,8rem) clamp(1.5rem,5vw,4rem);
+    }
+    .trail-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem,6vw,5.5rem);
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    .trail-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+    }
+    .trail-hl {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem,4.5vw,3.4rem);
+      font-weight: 300;
+      line-height: 1.12;
+      margin: 0.75rem 0 1.25rem;
+    }
+    .trail-hl em { color: var(--acc); }
+    .trail-body {
+      font-size: 0.92rem;
+      line-height: 1.96;
+      color: var(--tm);
+      margin-bottom: 1.25rem;
+    }
+
+    @media (max-width: 900px) {
+      .levels-grid { grid-template-columns: 1fr; }
+      .expect-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .intro-grid, .trail-inner { grid-template-columns: 1fr; }
+      .intro-badge { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Amethyst <span>Healing Rooms</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="sessions.html">Sessions</a></li>
+    <li><a href="community.html">Community</a></li>
+    <li><a href="training.html" class="active">Training</a></li>
+  </ul>
+  <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="nav-cta">Enquire Now</a>
+  <button class="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('662821507_798593122872281_5762162272473588394_n.jpg'); background-position: center 20%;"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <span class="eyebrow">Usui Reiki Training</span>
+    <h1>Awaken the healer<br><em>within you.</em></h1>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section id="intro">
+  <div class="intro-grid">
+    <div class="intro-img-wrap rv">
+      <img class="intro-img"
+           src="657459252_980108297830778_6736310075188424402_n.jpg"
+           alt="Janet Clifford giving a reiki session">
+      <div class="intro-badge">Usui Reiki<br>Master Teacher</div>
+    </div>
+    <div class="rv d1">
+      <span class="eyebrow" style="color:var(--acc);">Why Janet Teaches</span>
+      <h2 class="intro-hl">
+        This is what she<br>loves <em>most.</em>
+      </h2>
+      <p class="intro-body">
+        Of everything Janet does, teaching Usui Reiki is her greatest passion.
+        Passing on this gift, and watching what happens when people receive their
+        attunement, is what lights her up most. She describes it as helping
+        people remember something that was already in them.
+      </p>
+      <blockquote class="intro-pull">
+        "As a reiki teacher, sharing my knowledge and empowering people with
+        the energy is a good way to awaken that spark."
+      </blockquote>
+      <p class="intro-body">
+        Janet's students often describe their attunement as a turning point.
+        A moment when something clicked into place. Many of them go on to
+        practise reiki themselves, some joining the wider Amethyst community
+        as practitioners in their own right.
+      </p>
+      <p class="intro-body">
+        Training is offered at all three levels of Usui Reiki, from complete
+        beginners with no prior experience through to those ready to become
+        Reiki Masters and teachers themselves. Janet guides each student at
+        their own pace.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- THE LEVELS -->
+<section id="levels">
+  <div style="text-align:center; max-width:600px; margin:0 auto;">
+    <span class="eyebrow rv">The Path</span>
+    <h2 class="sec-title rv d1">Three levels of <em>initiation</em></h2>
+    <p class="sec-sub rv d2">
+      Usui Reiki is taught in three distinct levels, each building on the last.
+      You move at your own pace. There is no rush.
+    </p>
+  </div>
+  <div class="levels-grid">
+    <div class="level-card rv">
+      <p class="level-num">I</p>
+      <h3 class="level-name">Reiki <em>Shoden</em></h3>
+      <span class="level-jp">Level One</span>
+      <p class="level-desc">
+        The foundation. Your first attunement opens the channel between
+        you and universal life energy. You learn the history and principles
+        of reiki, the hand positions for treating yourself and others,
+        and begin to feel the energy consciously for the first time.
+        This level is the spark.
+      </p>
+    </div>
+    <div class="level-card rv d1">
+      <p class="level-num">II</p>
+      <h3 class="level-name">Reiki <em>Okuden</em></h3>
+      <span class="level-jp">Level Two</span>
+      <p class="level-desc">
+        The deepening. At this level you receive the sacred symbols that
+        amplify and direct the energy. You learn distance healing, how
+        to work with emotional and mental patterns, and your ability to
+        channel energy strengthens considerably. This level transforms
+        your practice.
+      </p>
+    </div>
+    <div class="level-card rv d2">
+      <p class="level-num">III</p>
+      <h3 class="level-name">Reiki <em>Shinpiden</em></h3>
+      <span class="level-jp">Master Level</span>
+      <p class="level-desc">
+        The mastery. The Reiki Master level brings the Master symbol,
+        deeper understanding of the system, and for those who choose it,
+        the ability to attune and teach others. This is the level Janet
+        herself holds, and the one from which the Amethyst tribe grows.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy">
+  <div class="philosophy-inner">
+    <span class="eyebrow rv">Janet's Philosophy</span>
+    <div class="divider divider-c rv"></div>
+    <blockquote class="philosophy-quote rv d1">
+      "I feel that we all have the power to heal ourselves. We just need to
+      <em>remember</em> what we already know deep within us."
+    </blockquote>
+    <div class="divider divider-c rv d2"></div>
+    <p class="philosophy-body rv d2">
+      Reiki is not something Janet gives to her students. It is something
+      she helps them uncover. The energy is already there. The attunement
+      is simply the act of remembering it. That is what makes teaching
+      this practice so meaningful to her.
+    </p>
+    <p class="philosophy-body rv d3">
+      Her mission is to open people to an awareness of their own energy,
+      and the power they hold to harness it. Feeling love and connection.
+      Trusting in something higher. Feeling safe in the world.
+      When you feel the energy, it can be life changing.
+    </p>
+  </div>
+</section>
+
+<!-- WHAT TO EXPECT -->
+<section id="expect">
+  <div class="expect-inner">
+    <div style="text-align:center; max-width:600px; margin:0 auto;">
+      <span class="eyebrow rv">What to Expect</span>
+      <h2 class="sec-title rv d1" style="color:var(--ink);">Before you <em>enquire</em></h2>
+    </div>
+    <div class="expect-grid">
+      <div class="expect-item rv">
+        <span class="expect-icon">◈</span>
+        <h3 class="expect-title">No experience <em>needed</em></h3>
+        <p class="expect-body">
+          You do not need any prior knowledge of reiki, energy healing or
+          spirituality. All you need is an open mind and a genuine desire
+          to learn. Janet meets every student exactly where they are.
+        </p>
+      </div>
+      <div class="expect-item rv d1">
+        <span class="expect-icon">✦</span>
+        <h3 class="expect-title">Personal <em>guidance</em></h3>
+        <p class="expect-body">
+          Training is intimate and personal. Janet works with small numbers
+          to ensure every student receives the attention and support they need.
+          This is not a mass certification course. It is a genuine initiation.
+        </p>
+      </div>
+      <div class="expect-item rv d2">
+        <span class="expect-icon">◉</span>
+        <h3 class="expect-title">Your own <em>pace</em></h3>
+        <p class="expect-body">
+          There is no pressure to move from one level to the next quickly.
+          Some people practise Level 1 for years before feeling called to
+          continue. Janet honours wherever you are in your journey.
+        </p>
+      </div>
+      <div class="expect-item rv d3">
+        <span class="expect-icon">∿</span>
+        <h3 class="expect-title">Join the <em>tribe</em></h3>
+        <p class="expect-body">
+          Once you have trained with Janet, you become part of the wider
+          Amethyst community. Monthly reiki shares, ongoing support, and
+          a circle of people walking the same path. You will not be left
+          to practise alone.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRIBE TRAIL -->
+<section id="tribe-trail">
+  <div class="trail-inner">
+    <div class="rv">
+      <img src="660918044_1488880446182221_7940801639890761241_n.jpg"
+           class="trail-img" alt="Connection with earth energy">
+    </div>
+    <div class="rv d1">
+      <span class="eyebrow">After Your Training</span>
+      <h2 class="trail-hl">
+        You become part of<br>something <em>living.</em>
+      </h2>
+      <p class="trail-body">
+        Completing your training with Janet does not mean the relationship ends.
+        Many of the people she has trained are now practitioners themselves,
+        some running their own practices. They stay connected through the
+        monthly reiki shares, where everyone gives and everyone receives.
+      </p>
+      <p class="trail-body">
+        This is what makes Amethyst Healing Rooms different. It is not just
+        a course. It is the beginning of a path, walked with others who
+        understand where you have been and where you are going.
+      </p>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:0.75rem;">
+        <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="btn-solid">Enquire about training</a>
+        <a href="community.html" class="btn-outline">Meet the community</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div class="cta-inner">
+    <span class="eyebrow rv">Begin the Journey</span>
+    <h2 class="cta-hl rv d1">The spark is already<br><em>within you.</em></h2>
+    <p class="cta-sub rv d2">
+      Reach out via Facebook to find out about upcoming training dates
+      and which level is right for where you are now.
+    </p>
+    <div class="cta-btns rv d3">
+      <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="btn-solid">Enquire on Facebook</a>
+      <a href="sessions.html" class="btn-outline">Explore all sessions</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h2>Amethyst <em>Healing Rooms</em></h2>
+      <p class="footer-tag">
+        A place where everyone comes together through an awareness of
+        the energy that connects us all, and the love that we truly are.
+        Cleckheaton, West Yorkshire.
+      </p>
+      <p class="footer-copy">2025 Amethyst Healing Rooms. Janet Clifford.</p>
+    </div>
+    <nav class="footer-nav">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sessions.html">Sessions</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="training.html">Reiki Training</a></li>
+      </ul>
+    </nav>
+    <nav class="footer-nav">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.instagram.com/sham69" target="_blank" rel="noopener">Instagram: @sham69</a></li>
+        <li><a href="#" style="cursor:default;">Cleckheaton, BD12 7HG</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
