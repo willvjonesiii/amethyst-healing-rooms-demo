@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amethyst Healing Rooms — Janet Clifford · Reiki & Sound Healing · Cleckheaton</title>
+  <meta name="description" content="Amethyst Healing Rooms with Janet Clifford. Reiki, sound healing, meditation and community in Cleckheaton, West Yorkshire.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== TOKENS ===== */
+    :root {
+      --void:    #0b0817;
+      --deep:    #150e27;
+      --mid:     #231a3f;
+      --surface: #321f58;
+      --cream:   #f5f0e6;
+      --parch:   #ede5d4;
+      --acc:     #a07dc4;
+      --acc-dim: rgba(160,125,196,0.25);
+      --gold:    #c49e52;
+      --tl:      #f5f0e6;
+      --tm:      rgba(245,240,230,0.68);
+      --td:      rgba(245,240,230,0.38);
+      --ink:     #1a1226;
+      --ink2:    #3d2d5a;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      background: var(--void);
+      color: var(--tl);
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    em { font-style: italic; }
+
+    /* ===== SCROLL REVEAL ===== */
+    .rv {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.85s ease, transform 0.85s ease;
+    }
+    .rv.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.45s; }
+
+    /* ===== SHARED ===== */
+    .eyebrow {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--acc);
+    }
+    .section-label {
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--acc);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .btn-solid {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      background: var(--acc);
+      color: var(--void);
+      padding: 0.95rem 2.2rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: opacity 0.25s, transform 0.2s;
+    }
+    .btn-solid:hover { opacity: 0.85; transform: translateY(-1px); }
+    .btn-outline {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      border: 1px solid rgba(245,240,230,0.35);
+      color: var(--tl);
+      padding: 0.95rem 2.2rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: border-color 0.25s, background 0.25s;
+    }
+    .btn-outline:hover {
+      border-color: var(--acc);
+      background: rgba(160,125,196,0.08);
+    }
+    .btn-outline-dark {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      border: 1px solid rgba(160,125,196,0.4);
+      color: var(--acc);
+      padding: 0.95rem 2.2rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: border-color 0.25s, background 0.25s, color 0.25s;
+    }
+    .btn-outline-dark:hover {
+      border-color: var(--acc);
+      background: var(--acc);
+      color: var(--void);
+    }
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: var(--acc);
+      margin: 1.5rem 0;
+    }
+    .divider-center { margin: 1.5rem auto; }
+
+    /* ===== NAVBAR ===== */
+    #nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      padding: 1.6rem clamp(1.5rem, 5vw, 4rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      transition: background 0.4s, backdrop-filter 0.4s, padding 0.35s;
+    }
+    #nav.scrolled {
+      background: rgba(11, 8, 23, 0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+    }
+    .nav-logo span { color: var(--acc); font-style: italic; }
+    .nav-links {
+      display: flex;
+      gap: clamp(1.4rem, 2.5vw, 2.2rem);
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--tm);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--tl); }
+    .nav-cta {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--acc);
+      border: 1px solid var(--acc);
+      padding: 0.55rem 1.3rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-cta:hover { background: var(--acc); color: var(--void); }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--tl);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    #hero {
+      position: relative;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('662821507_798593122872281_5762162272473588394_n.jpg');
+      background-size: cover;
+      background-position: center 25%;
+      filter: brightness(0.5);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(11,8,23,0.25) 0%,
+        rgba(11,8,23,0.08) 30%,
+        rgba(11,8,23,0.5) 70%,
+        rgba(11,8,23,0.92) 100%
+      );
+    }
+    .hero-glow {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(160,125,196,0.12) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: clamp(6rem,14vw,10rem) clamp(1.5rem,5vw,4rem) clamp(4rem,8vw,6rem);
+      max-width: 820px;
+    }
+    .hero-eyebrow {
+      font-size: 0.66rem;
+      font-weight: 400;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--acc);
+      margin-bottom: 1.75rem;
+      animation: fadeUp 1s ease 0.15s both;
+    }
+    .hero-h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.8rem, 11vw, 8.5rem);
+      font-weight: 300;
+      line-height: 0.95;
+      color: var(--tl);
+      margin-bottom: 1.25rem;
+      animation: fadeUp 1s ease 0.35s both;
+    }
+    .hero-h1 em { color: var(--acc); }
+    .hero-sub {
+      font-size: clamp(0.88rem, 1.8vw, 1.05rem);
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--tm);
+      max-width: 500px;
+      margin: 0 auto 2.75rem;
+      animation: fadeUp 1s ease 0.55s both;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 1s ease 0.75s both;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      animation: fadeUp 1s ease 1.1s both;
+    }
+    .hero-scroll span {
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--td);
+    }
+    .scroll-line {
+      width: 1px;
+      height: 44px;
+      background: linear-gradient(to bottom, var(--acc), transparent);
+      animation: pulse 2s ease infinite;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.35; }
+      50%       { opacity: 1; }
+    }
+
+    /* ===== MARQUEE ===== */
+    .marquee-wrap {
+      background: var(--mid);
+      border-top: 1px solid var(--acc-dim);
+      border-bottom: 1px solid var(--acc-dim);
+      overflow: hidden;
+      padding: 1.1rem 0;
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 32s linear infinite;
+    }
+    .marquee-item {
+      font-size: 0.66rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--tm);
+      padding: 0 2.2rem;
+      white-space: nowrap;
+    }
+    .marquee-item .dot { color: var(--acc); margin-left: 2.2rem; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ===== VISION ===== */
+    #vision {
+      position: relative;
+      background: var(--deep);
+      padding: clamp(5.5rem, 12vw, 9rem) clamp(1.5rem, 5vw, 4rem);
+      text-align: center;
+      overflow: hidden;
+    }
+    #vision::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('660918044_1488880446182221_7940801639890761241_n.jpg');
+      background-size: cover;
+      background-position: center top;
+      opacity: 0.09;
+    }
+    .vision-inner { position: relative; max-width: 760px; margin: 0 auto; }
+    .vision-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 5vw, 3.4rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.42;
+      color: var(--tl);
+      margin: 1.5rem 0 2rem;
+    }
+    .vision-quote em { font-style: normal; color: var(--acc); }
+    .vision-body {
+      font-size: clamp(0.88rem, 1.5vw, 0.98rem);
+      line-height: 1.95;
+      color: var(--tm);
+      max-width: 580px;
+      margin: 0 auto 1.25rem;
+    }
+
+    /* ===== MEET JANET ===== */
+    #meet {
+      background: var(--cream);
+      color: var(--ink);
+      padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+    }
+    .meet-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 7vw, 6.5rem);
+      max-width: 1160px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    .meet-img-wrap { position: relative; }
+    .meet-img-main {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .meet-img-accent {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      width: 42%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      object-position: center top;
+      border: 4px solid var(--cream);
+    }
+    .meet-frame {
+      position: absolute;
+      top: -0.85rem;
+      left: -0.85rem;
+      right: 0.85rem;
+      bottom: 0.85rem;
+      border: 1px solid var(--acc-dim);
+      pointer-events: none;
+    }
+    .meet-text { padding: 0.5rem 0; }
+    .meet-pullquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.45rem, 3vw, 2.2rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.45;
+      color: var(--ink);
+      border-left: 2px solid var(--acc);
+      padding-left: 1.5rem;
+      margin: 1.5rem 0 1.75rem;
+    }
+    .meet-body {
+      font-size: 0.93rem;
+      line-height: 1.95;
+      color: var(--ink2);
+      margin-bottom: 1.25rem;
+    }
+    .meet-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--acc);
+      transition: gap 0.25s;
+    }
+    .meet-link:hover { gap: 0.85rem; }
+
+    /* ===== SESSIONS ===== */
+    #sessions {
+      background: var(--void);
+      padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+    }
+    .sec-header {
+      text-align: center;
+      max-width: 580px;
+      margin: 0 auto 4rem;
+    }
+    .sec-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 300;
+      line-height: 1.12;
+      margin: 0.75rem 0;
+    }
+    .sec-title em { color: var(--acc); }
+    .sec-sub {
+      font-size: 0.9rem;
+      line-height: 1.85;
+      color: var(--tm);
+    }
+    .sessions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: var(--acc-dim);
+    }
+    .s-card {
+      background: var(--deep);
+      padding: clamp(1.75rem, 3.5vw, 2.5rem);
+      transition: background 0.3s;
+    }
+    .s-card:hover { background: var(--mid); }
+    .s-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: var(--acc);
+      opacity: 0.6;
+      margin-bottom: 1.1rem;
+    }
+    .s-sym {
+      display: block;
+      font-size: 1.35rem;
+      margin-bottom: 1rem;
+      color: var(--tm);
+    }
+    .s-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .s-name em { color: var(--acc); }
+    .s-desc {
+      font-size: 0.86rem;
+      line-height: 1.85;
+      color: var(--tm);
+    }
+    .s-photo { margin-top: 1.5rem; overflow: hidden; }
+    .s-photo img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      opacity: 0.72;
+      transition: opacity 0.3s, transform 0.5s;
+    }
+    .s-card:hover .s-photo img { opacity: 0.9; transform: scale(1.03); }
+
+    /* ===== CRYSTAL BOWLS MOMENT ===== */
+    #bowls-moment {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .bowls-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('662905430_1283714103696995_5274060365378354566_n.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.45);
+    }
+    .bowls-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(11,8,23,0.5) 0%,
+        rgba(11,8,23,0.2) 40%,
+        rgba(11,8,23,0.65) 100%
+      );
+    }
+    .bowls-content {
+      position: relative;
+      z-index: 2;
+      padding: clamp(5rem,10vw,8rem) clamp(1.5rem,5vw,4rem);
+      max-width: 700px;
+    }
+    .bowls-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5.5vw, 4rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.35;
+      color: var(--tl);
+    }
+    .bowls-quote em { color: var(--acc); font-style: normal; }
+    .bowls-attr {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--tm);
+      margin-top: 1.5rem;
+    }
+
+    /* ===== COMMUNITY / TRIBE ===== */
+    #community {
+      background: var(--parch);
+      color: var(--ink);
+      padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+    }
+    .community-inner { max-width: 1200px; margin: 0 auto; }
+    .community-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 5rem);
+      align-items: end;
+      margin-bottom: 4rem;
+    }
+    .community-hl {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 6.5vw, 4.8rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-top: 0.75rem;
+    }
+    .community-hl em { color: var(--acc); }
+    .community-intro {
+      font-size: 0.93rem;
+      line-height: 1.95;
+      color: var(--ink2);
+      margin-bottom: 1.25rem;
+    }
+    .tribe-photos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .tribe-photo {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      position: relative;
+    }
+    .tribe-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .tribe-photo:hover img { transform: scale(1.04); }
+    .tribe-placeholder {
+      width: 100%;
+      height: 100%;
+      background: rgba(160,125,196,0.08);
+      border: 1px dashed rgba(160,125,196,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem;
+    }
+    .tribe-placeholder p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--acc);
+      opacity: 0.65;
+    }
+    .share-band {
+      margin-top: 3.5rem;
+      background: var(--mid);
+      padding: clamp(2rem, 4vw, 3rem) clamp(2rem, 5vw, 4rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .share-band h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 400;
+      color: var(--tl);
+      margin-bottom: 0.4rem;
+    }
+    .share-band h3 em { color: var(--gold); }
+    .share-band p {
+      font-size: 0.87rem;
+      line-height: 1.75;
+      color: var(--tm);
+      max-width: 480px;
+    }
+
+    /* ===== GATHERINGS ===== */
+    #gatherings {
+      background: var(--deep);
+      padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+    }
+    .gatherings-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      max-width: 920px;
+      margin: 0 auto;
+      background: var(--acc-dim);
+    }
+    .g-card {
+      background: var(--mid);
+      padding: clamp(2.5rem, 5vw, 3.5rem);
+      transition: background 0.3s;
+    }
+    .g-card:hover { background: var(--surface); }
+    .g-sym {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 1.5rem;
+      color: var(--tm);
+    }
+    .g-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--acc);
+      margin-bottom: 0.75rem;
+    }
+    .g-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .g-title em { color: var(--gold); }
+    .g-desc {
+      font-size: 0.87rem;
+      line-height: 1.85;
+      color: var(--tm);
+      margin-bottom: 1.5rem;
+    }
+    .g-meta {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.8;
+    }
+
+    /* ===== TRAINING ===== */
+    #training {
+      background: var(--cream);
+      color: var(--ink);
+      padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+      overflow: hidden;
+    }
+    .training-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: clamp(3.5rem, 7vw, 6.5rem);
+      max-width: 1160px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    .training-img-wrap { position: relative; }
+    .training-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .training-badge {
+      position: absolute;
+      bottom: -1rem;
+      right: -1rem;
+      background: var(--acc);
+      color: var(--void);
+      padding: 1.35rem 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.8rem;
+      font-style: italic;
+      line-height: 1.5;
+      text-align: center;
+      min-width: 120px;
+    }
+    .training-hl {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.12;
+      color: var(--ink);
+      margin: 0.75rem 0 1.5rem;
+    }
+    .training-hl em { color: var(--acc); }
+    .training-body {
+      font-size: 0.93rem;
+      line-height: 1.95;
+      color: var(--ink2);
+      margin-bottom: 1.25rem;
+    }
+    .training-levels {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .t-level {
+      font-size: 0.64rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--acc);
+      border: 1px solid rgba(160,125,196,0.35);
+      padding: 0.4rem 0.9rem;
+    }
+
+    /* ===== OBJECTS STRIP ===== */
+    #objects {
+      background: var(--void);
+      padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem) 0;
+    }
+    .objects-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      max-width: 1200px;
+      margin: 2.5rem auto 0;
+      background: var(--acc-dim);
+    }
+    .obj-item { overflow: hidden; }
+    .obj-item img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      filter: brightness(0.75) saturate(0.85);
+      transition: transform 0.55s ease, filter 0.55s ease;
+    }
+    .obj-item:hover img {
+      transform: scale(1.04);
+      filter: brightness(0.95) saturate(1.1);
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    #testimonials {
+      background: var(--mid);
+      padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+      text-align: center;
+    }
+    .test-placeholder {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-style: italic;
+      color: var(--td);
+      border: 1px dashed rgba(160,125,196,0.2);
+      padding: clamp(2.5rem, 5vw, 3.5rem);
+      max-width: 620px;
+      margin: 2.5rem auto 2rem;
+      line-height: 1.8;
+    }
+
+    /* ===== CTA BAND ===== */
+    #cta {
+      position: relative;
+      background: var(--void);
+      padding: clamp(6rem, 12vw, 10rem) clamp(1.5rem, 5vw, 4rem);
+      text-align: center;
+      overflow: hidden;
+    }
+    #cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('657449893_1251848930348039_2464343206332712562_n.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.08;
+    }
+    .cta-radial {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(160,125,196,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cta-inner { position: relative; max-width: 680px; margin: 0 auto; }
+    .cta-hl {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 7vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.08;
+      margin: 0.75rem 0 1.5rem;
+    }
+    .cta-hl em { color: var(--acc); }
+    .cta-sub {
+      font-size: 0.93rem;
+      line-height: 1.85;
+      color: var(--tm);
+      margin-bottom: 2.5rem;
+    }
+    .cta-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ===== FIND US ===== */
+    #findus {
+      background: var(--deep);
+      padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem);
+    }
+    .findus-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      gap: clamp(3rem, 6vw, 5rem);
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .findus-block h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--tl);
+      margin: 1rem 0 0.75rem;
+    }
+    .findus-block p {
+      font-size: 0.9rem;
+      line-height: 2;
+      color: var(--tm);
+    }
+    .social-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.8rem;
+      color: var(--tm);
+      transition: color 0.25s;
+    }
+    .social-link:hover { color: var(--acc); }
+    .social-link .ico {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: var(--acc);
+      width: 1.4rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--cream);
+      color: var(--ink);
+      border-radius: 3rem 3rem 0 0;
+      padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+    }
+    .footer-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 3rem;
+    }
+    .footer-brand h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .footer-brand h2 em { color: var(--acc); }
+    .footer-tagline {
+      font-size: 0.84rem;
+      line-height: 1.8;
+      color: var(--ink2);
+      margin-bottom: 1.5rem;
+    }
+    .footer-copy {
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      color: #9a8ab0;
+    }
+    .footer-nav h4 {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--acc);
+      margin-bottom: 1.1rem;
+    }
+    .footer-nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .footer-nav ul a {
+      font-size: 0.87rem;
+      color: var(--ink2);
+      transition: color 0.2s;
+    }
+    .footer-nav ul a:hover { color: var(--acc); }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 900px) {
+      .sessions-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .meet-grid,
+      .community-top,
+      .training-inner,
+      .gatherings-grid,
+      .footer-inner { grid-template-columns: 1fr; }
+      .meet-img-accent { display: none; }
+      .tribe-photos { grid-template-columns: 1fr 1fr; }
+      .objects-strip { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .sessions-grid { grid-template-columns: 1fr; }
+      .tribe-photos { grid-template-columns: 1fr; }
+      .objects-strip { grid-template-columns: 1fr; }
+      .hero-h1 { font-size: clamp(3rem, 14vw, 4.5rem); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav id="nav">
+  <a href="#" class="nav-logo">Amethyst <span>Healing Rooms</span></a>
+  <ul class="nav-links">
+    <li><a href="#meet">About</a></li>
+    <li><a href="#sessions">Sessions</a></li>
+    <li><a href="#community">Community</a></li>
+    <li><a href="#gatherings">Gatherings</a></li>
+    <li><a href="#training">Training</a></li>
+    <li><a href="#findus">Find Us</a></li>
+  </ul>
+  <a href="https://www.facebook.com/AmethystHealingRooms" target="_blank" rel="noopener" class="nav-cta">Book a Session</a>
+  <button class="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Amethyst Healing Rooms · Janet Clifford · Cleckheaton</p>
+    <h1 class="hero-h1">
+      You already know<br>how to <em>heal.</em>
+    </h1>
+    <p class="hero-sub">
+      A sacred community where energy, love and connection
+      bring us home to ourselves. Reiki · Sound Healing · Shamanic Practice.
+    </p>
+    <div class="hero-ctas">
+      <a href="https://www.facebook.com/AmethystHealingRooms" target="_blank" rel="noopener" class="btn-solid">Begin Your Journey</a>
+      <a href="#sessions" class="btn-outline">Explore Sessions</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ===== MARQUEE ===== -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Reiki Healing<span class="dot"> ✦</span></span>
+    <span class="marquee-item">Sound Healing<span class="dot"> ✦</span></span>
+    <span class="marquee-item">Crystal Bowls<span class="dot"> ✦</span></span>
+    <span class="marquee-item">Tuning Forks<span class="dot"> ✦</span></span>
+    <span class="marquee-item">Shamanic Drum<span class="dot"> ✦</span></span>
+    <span class="marquee-item">Usui Reiki Training<span class="dot"> ✦</span></span>
+    <span class="marquee-item">Monthly Circles<span class="dot"> ✦</span></span>
+    <span class="marquee-item">Reiki Shares<span class="dot"> ✦</span></span>
+    <span class="marquee-item">Sacred Community<span class="dot"> ✦</span></span>
+    <span class="marquee-item">Cleckheaton · West Yorkshire<span class="dot"> ✦</span></span>
+    <span class="marquee-item">Reiki Healing<span class="dot"> ✦</span></span>
+    <span class="marquee-item">Sound Healing<span class="dot"> ✦</span></span>
+    <span class="marquee-item">Crystal Bowls<span class="dot"> ✦</span></span>
+    <span class="marquee-item">Tuning Forks<span class="dot"> ✦</span></span>
+    <span class="marquee-item">Shamanic Drum<span class="dot"> ✦</span></span>
+    <span class="marquee-item">Usui Reiki Training<span class="dot"> ✦</span></span>
+    <span class="marquee-item">Monthly Circles<span class="dot"> ✦</span></span>
+    <span class="marquee-item">Reiki Shares<span class="dot"> ✦</span></span>
+    <span class="marquee-item">Sacred Community<span class="dot"> ✦</span></span>
+    <span class="marquee-item">Cleckheaton · West Yorkshire<span class="dot"> ✦</span></span>
+  </div>
+</div>
+
+<!-- ===== VISION ===== -->
+<section id="vision">
+  <div class="vision-inner">
+    <p class="eyebrow rv">The Vision</p>
+    <div class="divider divider-center rv"></div>
+    <blockquote class="vision-quote rv d1">
+      "We all have the power to heal ourselves —
+      we just need to <em>remember</em>
+      what we already know deep within us."
+    </blockquote>
+    <div class="divider divider-center rv d2"></div>
+    <p class="vision-body rv d2">
+      Amethyst Healing Rooms is a place where everyone comes together
+      through an awareness of the energy that connects us all —
+      and the love that we truly are.
+      A place without judgement, where people feel safe and loved.
+    </p>
+    <p class="vision-body rv d3">
+      The mission is to open people to an awareness of their own energy —
+      and the power they hold to harness it, bringing real change in their
+      perception of the world and of themselves. Feeling love. Feeling connection.
+      Trusting in something higher. Feeling safe in the world.
+    </p>
+  </div>
+</section>
+
+<!-- ===== MEET JANET ===== -->
+<section id="meet">
+  <div class="meet-grid">
+    <div class="meet-img-wrap rv">
+      <div class="meet-frame"></div>
+      <img class="meet-img-main"
+           src="657449893_1251848930348039_2464343206332712562_n.jpg"
+           alt="Janet Clifford at a sacred garden well">
+      <img class="meet-img-accent"
+           src="661472770_879750938446454_1947353881289032312_n.jpg"
+           alt="Janet Clifford portrait">
+    </div>
+    <div class="meet-text rv d1">
+      <span class="section-label" style="color: var(--acc);">Meet Your Guide</span>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,5vw,3.2rem); font-weight:300; line-height:1.15; color:var(--ink);">
+        Janet <em style="color:var(--acc);">Clifford</em>
+      </h2>
+      <blockquote class="meet-pullquote">
+        "Sharing my knowledge and empowering people with the energy is a good way to awaken that spark — when you feel it, it can be life changing."
+      </blockquote>
+      <p class="meet-body">
+        Janet is a Reiki Master Teacher based in Cleckheaton, West Yorkshire,
+        specialising in Usui Reiki, sound healing and shamanic practice.
+        Her approach is deeply intuitive — she uses crystals, tuning forks
+        and the shamanic drum not by formula, but by feel, guided by whatever
+        each person needs in that moment.
+      </p>
+      <p class="meet-body">
+        Over the years, Janet has built something rare: not just a practice,
+        but a tribe. Many of the people she has trained in Reiki are now
+        practitioners themselves, forming a living community that holds monthly
+        shares, circles and gatherings where the energy keeps flowing.
+      </p>
+      <a href="https://www.facebook.com/AmethystHealingRooms" target="_blank" rel="noopener" class="meet-link">
+        Connect with Janet →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SESSIONS ===== -->
+<section id="sessions">
+  <div class="sec-header">
+    <p class="eyebrow rv">The Practice</p>
+    <h2 class="sec-title rv d1">How we <em>work</em> together</h2>
+    <p class="sec-sub rv d2">
+      Every session is intuition-led. Janet draws on crystals, tuning forks
+      and the shamanic drum when the energy calls for them — no two sessions
+      are alike.
+    </p>
+  </div>
+  <div class="sessions-grid">
+    <div class="s-card rv">
+      <p class="s-num">01</p>
+      <span class="s-sym">✦</span>
+      <h3 class="s-name">Reiki <em>Healing</em></h3>
+      <p class="s-desc">
+        A deeply relaxing session channelling universal life energy.
+        Crystals, tuning forks and the shamanic drum may be woven in
+        intuitively — each session is entirely unique to you.
+      </p>
+      <div class="s-photo">
+        <img src="657459252_980108297830778_6736310075188424402_n.jpg"
+             alt="Janet giving a reiki healing session">
+      </div>
+    </div>
+    <div class="s-card rv d1">
+      <p class="s-num">02</p>
+      <span class="s-sym">♪</span>
+      <h3 class="s-name">Reiki & <em>Sound Healing</em></h3>
+      <p class="s-desc">
+        A private 1:1 session combining the gentle power of reiki with
+        therapeutic sound — tuning forks, bowls, gong. Deeply restorative.
+        Leaves you re-tuned.
+      </p>
+      <div class="s-photo">
+        <img src="661814062_883919804671326_3771866821382765937_n.jpg"
+             alt="Tuning forks used in sound healing">
+      </div>
+    </div>
+    <div class="s-card rv d2">
+      <p class="s-num">03</p>
+      <span class="s-sym">◎</span>
+      <h3 class="s-name">Meditation & <em>Sound</em></h3>
+      <p class="s-desc">
+        Small group sessions of up to six people. Crystal singing bowls
+        and gong create a soundscape that guides you gently inward.
+        An experience you feel in the body for days afterwards.
+      </p>
+    </div>
+    <div class="s-card rv">
+      <p class="s-num">04</p>
+      <span class="s-sym">◉</span>
+      <h3 class="s-name">Sound Healing <em>Group</em></h3>
+      <p class="s-desc">
+        Monthly community sound healing sessions held at a local gathering
+        space in Cleckheaton. Open to all — no experience needed.
+        Come and feel the power of collective resonance.
+      </p>
+    </div>
+    <div class="s-card rv d1">
+      <p class="s-num">05</p>
+      <span class="s-sym">∿</span>
+      <h3 class="s-name">Shamanic <em>Drumming</em></h3>
+      <p class="s-desc">
+        The drum has called people into ceremony for thousands of years.
+        Monthly shamanic drumming circles at a local community space —
+        ancient technology, still alive.
+      </p>
+    </div>
+    <div class="s-card rv d2">
+      <p class="s-num">06</p>
+      <span class="s-sym">◈</span>
+      <h3 class="s-name">Reiki <em>Training</em></h3>
+      <p class="s-desc">
+        Janet's greatest passion: teaching Usui Reiki and empowering others
+        to channel healing energy themselves. All levels from beginner
+        to Master. See below.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CRYSTAL BOWLS MOMENT ===== -->
+<section id="bowls-moment">
+  <div class="bowls-bg"></div>
+  <div class="bowls-overlay"></div>
+  <div class="bowls-content rv">
+    <p class="eyebrow" style="margin-bottom:1.5rem;">Janet Clifford</p>
+    <blockquote class="bowls-quote">
+      "A place where there's no judgement and people
+      feel <em>safe</em> and <em>loved.</em>"
+    </blockquote>
+    <p class="bowls-attr" style="margin-top:1.75rem;">Janet Clifford · Reiki Master Teacher · Amethyst Healing Rooms</p>
+  </div>
+</section>
+
+<!-- ===== COMMUNITY ===== -->
+<section id="community">
+  <div class="community-inner">
+    <div class="community-top rv">
+      <div>
+        <span class="section-label" style="color:var(--acc);">The Tribe</span>
+        <h2 class="community-hl">
+          More than a<br>practice.<br>A <em>community.</em>
+        </h2>
+      </div>
+      <div>
+        <p class="community-intro">
+          Over the years, Janet has trained and attuned many people to Reiki —
+          and several of them are now practitioners themselves. Together,
+          they form something rare in the wellness world: a genuine tribe.
+          A lineage of people who felt the energy, had their spark awakened,
+          and chose to carry it forward.
+        </p>
+        <p class="community-intro">
+          This is Janet's vision made real: not a practitioner behind a treatment
+          table, but a community that gathers, shares and holds each other —
+          united by an awareness of the love and energy that connects us all.
+        </p>
+      </div>
+    </div>
+
+    <div class="tribe-photos">
+      <div class="tribe-photo rv">
+        <img src="657253396_1440155630983374_4627450917287759395_n.jpg"
+             alt="Janet at a sacred healing garden">
+      </div>
+      <div class="tribe-photo rv d1">
+        <div class="tribe-placeholder">
+          <p>Community photos<br>coming soon</p>
+        </div>
+      </div>
+      <div class="tribe-photo rv d2">
+        <div class="tribe-placeholder">
+          <p>Community photos<br>coming soon</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="share-band rv">
+      <div>
+        <h3>Monthly Reiki <em>Share</em></h3>
+        <p>
+          Once a month, the Amethyst community comes together to share reiki energy.
+          Everyone gives, everyone receives. All are welcome —
+          practitioners and newcomers alike.
+        </p>
+      </div>
+      <a href="https://www.facebook.com/AmethystHealingRooms" target="_blank" rel="noopener" class="btn-solid">
+        Join the Next Share
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GATHERINGS ===== -->
+<section id="gatherings">
+  <div style="max-width:920px; margin:0 auto;">
+    <div class="sec-header" style="max-width:100%; margin-bottom:3rem;">
+      <p class="eyebrow rv">Monthly Gatherings</p>
+      <h2 class="sec-title rv d1">Open doors.<br><em>Open hearts.</em></h2>
+      <p class="sec-sub rv d2">
+        Regular community events at local spaces in Cleckheaton.
+        Come once. Come always.
+      </p>
+    </div>
+    <div class="gatherings-grid">
+      <div class="g-card rv">
+        <span class="g-sym">◎</span>
+        <p class="g-label">Monthly · Community</p>
+        <h3 class="g-title">Sound Healing <em>Circle</em></h3>
+        <p class="g-desc">
+          Crystal bowls and gong fill the room with sound that works on
+          a cellular level. A shared experience of deep relaxation,
+          release and renewal. Suitable for everyone, no experience needed.
+        </p>
+        <p class="g-meta">Monthly · Community Space, Cleckheaton</p>
+      </div>
+      <div class="g-card rv d1">
+        <span class="g-sym">∿</span>
+        <p class="g-label">Monthly · Community</p>
+        <h3 class="g-title">Shamanic <em>Drumming</em></h3>
+        <p class="g-desc">
+          The oldest technology of transformation known to humanity.
+          The drum takes you on a journey inward. No experience needed —
+          just come and be present to what arises.
+        </p>
+        <p class="g-meta">Monthly · Community Space, Cleckheaton</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRAINING ===== -->
+<section id="training">
+  <div class="training-inner">
+    <div class="training-img-wrap rv">
+      <img class="training-img"
+           src="660918044_1488880446182221_7940801639890761241_n.jpg"
+           alt="Connecting with earth energy — barefoot at an ancient tree">
+      <div class="training-badge">Usui Reiki<br>Master Teacher</div>
+    </div>
+    <div class="rv d1">
+      <span class="section-label" style="color:var(--acc);">Reiki Training</span>
+      <h2 class="training-hl">
+        Awaken the healer<br><em>within you.</em>
+      </h2>
+      <p class="training-body">
+        Teaching Usui Reiki is what Janet loves most. Passing on the gift
+        of energy healing — empowering others to channel it for themselves —
+        is her deepest calling.
+      </p>
+      <p class="training-body">
+        When you learn reiki, you don't just gain a skill. You remember
+        a capacity that was always yours. Janet's students often describe
+        their attunement as a turning point: the moment the spark was lit.
+        Many go on to become practitioners themselves, joining the ever-growing
+        Amethyst tribe.
+      </p>
+      <div class="training-levels">
+        <span class="t-level">Level 1 · Shoden</span>
+        <span class="t-level">Level 2 · Okuden</span>
+        <span class="t-level">Master · Shinpiden</span>
+      </div>
+      <a href="https://www.facebook.com/AmethystHealingRooms" target="_blank" rel="noopener" class="btn-outline-dark">
+        Enquire About Training
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OBJECTS ===== -->
+<section id="objects">
+  <div style="max-width:900px; margin:0 auto; text-align:center;">
+    <p class="eyebrow rv">Sacred Tools</p>
+    <h2 class="sec-title rv d1" style="margin-top:0.75rem;">The <em>instruments</em></h2>
+  </div>
+  <div class="objects-strip">
+    <div class="obj-item rv">
+      <img src="657659780_953327130425197_1530954544285871400_n.jpg"
+           alt="Amethyst crystal geode — sacred symbol of the practice">
+    </div>
+    <div class="obj-item rv d1">
+      <img src="661814062_883919804671326_3771866821382765937_n.jpg"
+           alt="Tuning forks on velvet — tools of sound healing">
+    </div>
+    <div class="obj-item rv d2">
+      <img src="662411789_1910433369663995_7386933960829627463_n.jpg"
+           alt="Connection with nature — earth energy">
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section id="testimonials">
+  <p class="eyebrow rv">What People Say</p>
+  <h2 class="sec-title rv d1" style="margin-top:0.75rem;">Words from the <em>community</em></h2>
+  <div class="test-placeholder rv d2">
+    Testimonials coming soon.<br>
+    Visit the Amethyst Healing Rooms Facebook page to read reviews from
+    the community — or ask Janet for her favourites.
+  </div>
+  <div style="text-align:center;" class="rv d3">
+    <a href="https://www.facebook.com/AmethystHealingRooms" target="_blank" rel="noopener" class="btn-outline">
+      Read Reviews on Facebook →
+    </a>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section id="cta">
+  <div class="cta-radial"></div>
+  <div class="cta-inner">
+    <p class="eyebrow rv">Begin Here</p>
+    <h2 class="cta-hl rv d1">
+      The energy is already<br><em>within you.</em>
+    </h2>
+    <p class="cta-sub rv d2">
+      Whether you're coming for healing, for community, or to discover
+      your own ability to channel — the door is open. You are welcome here.
+    </p>
+    <div class="cta-btns rv d3">
+      <a href="https://www.facebook.com/AmethystHealingRooms" target="_blank" rel="noopener" class="btn-solid">Book a Session</a>
+      <a href="https://www.instagram.com/sham69" target="_blank" rel="noopener" class="btn-outline">Follow on Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FIND US ===== -->
+<section id="findus">
+  <div class="findus-inner">
+    <div class="findus-block rv">
+      <p class="eyebrow">Find Us</p>
+      <h3>Amethyst Healing Rooms</h3>
+      <p>
+        Cleckheaton<br>
+        West Yorkshire<br>
+        BD12 7HG<br>
+        United Kingdom
+      </p>
+    </div>
+    <div class="rv d1">
+      <p class="eyebrow" style="margin-bottom:1rem;">Connect</p>
+      <div class="social-list">
+        <a href="https://www.facebook.com/AmethystHealingRooms" target="_blank" rel="noopener" class="social-link">
+          <span class="ico">f</span> Facebook · Amethyst Healing Rooms
+        </a>
+        <a href="https://www.instagram.com/sham69" target="_blank" rel="noopener" class="social-link">
+          <span class="ico">◎</span> Instagram · @sham69
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h2>Amethyst <em>Healing Rooms</em></h2>
+      <p class="footer-tagline">
+        A place where everyone can come together through an awareness
+        of the energy that connects us all — and the love that we truly are.
+      </p>
+      <p class="footer-copy">© 2025 Amethyst Healing Rooms · Janet Clifford · Cleckheaton</p>
+    </div>
+    <nav class="footer-nav">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#meet">About Janet</a></li>
+        <li><a href="#sessions">Sessions</a></li>
+        <li><a href="#community">The Tribe</a></li>
+        <li><a href="#gatherings">Gatherings</a></li>
+        <li><a href="#training">Reiki Training</a></li>
+      </ul>
+    </nav>
+    <nav class="footer-nav">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.facebook.com/AmethystHealingRooms" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.instagram.com/sham69" target="_blank" rel="noopener">Instagram · @sham69</a></li>
+        <li><a href="#findus">Cleckheaton, BD12 7HG</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll behaviour
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
