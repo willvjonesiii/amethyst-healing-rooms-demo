@@ -76,13 +76,13 @@
     }
     .share-img {
       position: relative;
-      aspect-ratio: 4/5;
+      min-height: 420px;
       overflow: hidden;
     }
-    .share-img img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: center top;
-      filter: brightness(0.78);
+    .share-img-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center top;
+      filter: brightness(0.72);
     }
     .share-img::after {
       content: '';
@@ -280,7 +280,7 @@
 <section id="reiki-share">
   <div class="share-inner">
     <div class="share-img rv">
-      <img src="660918044_1488880446182221_7940801639890761241_n.jpg" alt="Barefoot at an ancient tree">
+      <div class="share-img-bg" style="background-image:url('660918044_1488880446182221_7940801639890761241_n.jpg')"></div>
     </div>
     <div class="rv d1">
       <span class="eyebrow">Monthly</span>

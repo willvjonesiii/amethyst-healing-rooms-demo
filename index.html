@@ -12,7 +12,7 @@
   <style>
     /* HERO */
     #hero {
-      position: relative; min-height: 100dvh;
+      position: relative; height: 100dvh; max-height: 100dvh;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       text-align: center; overflow: hidden;
@@ -37,7 +37,7 @@
     }
     .hero-content {
       position: relative; z-index: 2;
-      padding: clamp(6rem,14vw,10rem) clamp(1.5rem,5vw,4rem) clamp(4rem,8vw,6rem);
+      padding: clamp(1.5rem,4vw,3rem) clamp(1.5rem,5vw,4rem);
       max-width: 800px;
     }
     .hero-eyebrow {
@@ -48,9 +48,9 @@
     }
     .hero-h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.8rem, 11vw, 8.5rem);
+      font-size: clamp(3.2rem, 8vw, 6rem);
       font-weight: 300; line-height: 0.95;
-      color: var(--tl); margin-bottom: 1.3rem;
+      color: var(--tl); margin-bottom: 1rem;
       animation: fadeUp 1s ease 0.35s both;
     }
     .hero-h1 em { color: var(--acc); }
@@ -83,7 +83,7 @@
       background-image: url('475765344_607207422171249_840373060851223144_n.jpg');
       background-size: cover; background-position: center;
       background-attachment: fixed;
-      padding: clamp(5.5rem,12vw,9rem) clamp(1.5rem,5vw,4rem);
+      padding: clamp(3rem,6vw,5rem) clamp(1.5rem,5vw,4rem);
       text-align: center; overflow: hidden;
     }
     #vision::before {
@@ -93,9 +93,9 @@
     .vision-inner { position: relative; max-width: 700px; margin: 0 auto; }
     .vision-quote {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.85rem, 4.8vw, 3.1rem);
+      font-size: clamp(1.5rem, 3.2vw, 2.2rem);
       font-weight: 300; font-style: italic; line-height: 1.44;
-      color: var(--tl); margin: 1.4rem 0 1.75rem;
+      color: var(--tl); margin: 1rem 0 1.25rem;
     }
     .vision-quote em { font-style: normal; color: var(--acc); }
     .vision-body {
