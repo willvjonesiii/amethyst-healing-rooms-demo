@@ -79,15 +79,16 @@
 
     /* VISION */
     #vision {
-      position: relative; background: var(--deep);
+      position: relative;
+      background-image: url('657659780_953327130425197_1530954544285871400_n.jpg');
+      background-size: cover; background-position: center;
+      background-attachment: fixed;
       padding: clamp(5.5rem,12vw,9rem) clamp(1.5rem,5vw,4rem);
       text-align: center; overflow: hidden;
     }
-    .vision-parallax {
-      position: absolute; inset: -30% 0;
-      background-image: url('657659780_953327130425197_1530954544285871400_n.jpg');
-      background-size: cover; background-position: center;
-      opacity: 0.12; will-change: transform;
+    #vision::before {
+      content: ''; position: absolute; inset: 0;
+      background: var(--deep); opacity: 0.88; z-index: 0;
     }
     .vision-inner { position: relative; max-width: 700px; margin: 0 auto; }
     .vision-quote {
@@ -291,7 +292,6 @@
 
 <!-- VISION -->
 <section id="vision">
-  <div class="vision-parallax" id="visionPx"></div>
   <div class="vision-inner">
     <span class="eyebrow rv">The Vision</span>
     <div class="divider divider-c rv"></div>
@@ -501,18 +501,6 @@
   const io = new IntersectionObserver(entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')), { threshold: 0.1 });
   document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
-  // Vision section parallax
-  const visionPx = document.getElementById('visionPx');
-  const visionSec = document.getElementById('vision');
-  function driveParallax() {
-    const r = visionSec.getBoundingClientRect();
-    const vh = window.innerHeight;
-    if (r.bottom < 0 || r.top > vh) return;
-    const progress = (vh - r.top) / (vh + r.height);
-    visionPx.style.transform = 'translateY(' + (progress * -18) + '%)';
-  }
-  window.addEventListener('scroll', driveParallax, { passive: true });
-  driveParallax();
 </script>
 </body>
 </html>
