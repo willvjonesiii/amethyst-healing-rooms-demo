@@ -4,333 +4,206 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Amethyst Healing Rooms — Janet Clifford · Reiki and Sound Healing · Cleckheaton</title>
-  <meta name="description" content="Amethyst Healing Rooms with Janet Clifford. Reiki, sound healing and sacred community in Cleckheaton, West Yorkshire.">
+  <meta name="description" content="A place where everyone can come together through the energy that connects us all. Reiki, sound healing and community in Cleckheaton, West Yorkshire.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-
   <style>
-    /* ===== HERO ===== */
+    /* HERO */
     #hero {
-      position: relative;
-      min-height: 100dvh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
+      position: relative; min-height: 100dvh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; overflow: hidden;
     }
     .hero-bg {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background-image: url('662821507_798593122872281_5762162272473588394_n.jpg');
-      background-size: cover;
-      background-position: center 25%;
+      background-size: cover; background-position: center 25%;
       filter: brightness(0.48);
     }
     .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(11,8,23,0.22) 0%,
-        rgba(11,8,23,0.06) 30%,
-        rgba(11,8,23,0.5) 70%,
-        rgba(11,8,23,0.94) 100%
-      );
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(11,8,23,0.2) 0%, rgba(11,8,23,0.05) 30%,
+        rgba(11,8,23,0.5) 70%, rgba(11,8,23,0.95) 100%);
     }
     .hero-glow {
-      position: absolute;
-      top: 8%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 440px;
-      height: 440px;
+      position: absolute; top: 8%; left: 50%; transform: translateX(-50%);
+      width: 420px; height: 420px;
       background: radial-gradient(circle, rgba(160,125,196,0.1) 0%, transparent 65%);
       pointer-events: none;
     }
     .hero-content {
-      position: relative;
-      z-index: 2;
+      position: relative; z-index: 2;
       padding: clamp(6rem,14vw,10rem) clamp(1.5rem,5vw,4rem) clamp(4rem,8vw,6rem);
-      max-width: 820px;
+      max-width: 800px;
     }
     .hero-eyebrow {
-      font-size: 0.64rem;
-      font-weight: 400;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--acc);
-      margin-bottom: 1.75rem;
+      font-size: 0.64rem; font-weight: 400;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--acc); margin-bottom: 1.75rem;
       animation: fadeUp 1s ease 0.15s both;
     }
     .hero-h1 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(3.8rem, 11vw, 8.5rem);
-      font-weight: 300;
-      line-height: 0.95;
-      color: var(--tl);
-      margin-bottom: 1.3rem;
+      font-weight: 300; line-height: 0.95;
+      color: var(--tl); margin-bottom: 1.3rem;
       animation: fadeUp 1s ease 0.35s both;
     }
     .hero-h1 em { color: var(--acc); }
     .hero-sub {
-      font-size: clamp(0.88rem, 1.8vw, 1.05rem);
-      font-weight: 300;
-      line-height: 1.82;
-      color: var(--tm);
-      max-width: 480px;
-      margin: 0 auto 2.8rem;
+      font-size: clamp(0.88rem,1.8vw,1.05rem); font-weight: 300;
+      line-height: 1.82; color: var(--tm);
+      max-width: 460px; margin: 0 auto 2.8rem;
       animation: fadeUp 1s ease 0.55s both;
     }
     .hero-ctas {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
       animation: fadeUp 1s ease 0.75s both;
     }
     .hero-scroll {
-      position: absolute;
-      bottom: 2.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
       animation: fadeUp 1s ease 1.1s both;
     }
-    .hero-scroll span {
-      font-size: 0.56rem;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--td);
-    }
+    .hero-scroll span { font-size: 0.56rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--td); }
     .scroll-line {
-      width: 1px;
-      height: 46px;
+      width: 1px; height: 44px;
       background: linear-gradient(to bottom, var(--acc), transparent);
       animation: linePulse 2s ease infinite;
     }
-    @keyframes linePulse {
-      0%, 100% { opacity: 0.35; }
-      50%       { opacity: 1; }
-    }
+    @keyframes linePulse { 0%,100%{opacity:.35} 50%{opacity:1} }
 
-    /* ===== VISION ===== */
+    /* VISION */
     #vision {
-      position: relative;
-      background: var(--deep);
+      position: relative; background: var(--deep);
       padding: clamp(5.5rem,12vw,9rem) clamp(1.5rem,5vw,4rem);
-      text-align: center;
-      overflow: hidden;
+      text-align: center; overflow: hidden;
     }
     #vision::before {
-      content: '';
-      position: absolute;
-      inset: 0;
+      content: ''; position: absolute; inset: 0;
       background-image: url('660918044_1488880446182221_7940801639890761241_n.jpg');
-      background-size: cover;
-      background-position: center top;
-      opacity: 0.08;
+      background-size: cover; background-position: center top; opacity: 0.07;
     }
-    .vision-inner { position: relative; max-width: 740px; margin: 0 auto; }
+    .vision-inner { position: relative; max-width: 700px; margin: 0 auto; }
     .vision-quote {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.85rem, 5vw, 3.2rem);
-      font-weight: 300;
-      font-style: italic;
-      line-height: 1.44;
-      color: var(--tl);
-      margin: 1.5rem 0 2rem;
+      font-size: clamp(1.85rem, 4.8vw, 3.1rem);
+      font-weight: 300; font-style: italic; line-height: 1.44;
+      color: var(--tl); margin: 1.4rem 0 1.75rem;
     }
     .vision-quote em { font-style: normal; color: var(--acc); }
     .vision-body {
       font-size: clamp(0.88rem,1.5vw,0.97rem);
-      line-height: 1.96;
-      color: var(--tm);
-      max-width: 570px;
-      margin: 0 auto 1.25rem;
+      line-height: 1.96; color: var(--tm);
+      max-width: 560px; margin: 0 auto 1rem;
     }
 
-    /* ===== MEET JANET (brief) ===== */
+    /* MEET JANET */
     #meet {
-      background: var(--cream);
-      color: var(--ink);
+      background: var(--cream); color: var(--ink);
       padding: clamp(5rem,10vw,8rem) clamp(1.5rem,5vw,4rem);
     }
     .meet-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(3rem,7vw,6.5rem);
-      max-width: 1100px;
-      margin: 0 auto;
-      align-items: center;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem,7vw,6rem);
+      max-width: 1100px; margin: 0 auto; align-items: center;
     }
     .meet-img-wrap { position: relative; }
     .meet-img-main {
-      width: 100%;
-      aspect-ratio: 3/4;
-      object-fit: cover;
-      object-position: center top;
+      width: 100%; aspect-ratio: 3/4;
+      object-fit: cover; object-position: center top;
     }
     .meet-img-accent {
-      position: absolute;
-      bottom: -1.5rem;
-      right: -1.5rem;
-      width: 42%;
-      aspect-ratio: 1;
-      object-fit: cover;
-      object-position: center top;
+      position: absolute; bottom: -1.5rem; right: -1.5rem;
+      width: 40%; aspect-ratio: 1;
+      object-fit: cover; object-position: center top;
       border: 4px solid var(--cream);
     }
     .meet-frame {
-      position: absolute;
-      top: -0.8rem; left: -0.8rem;
+      position: absolute; top: -0.8rem; left: -0.8rem;
       right: 0.8rem; bottom: 0.8rem;
-      border: 1px solid var(--acc-dim);
-      pointer-events: none;
+      border: 1px solid var(--acc-dim); pointer-events: none;
     }
     .meet-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2rem,5vw,3.2rem);
-      font-weight: 300;
-      line-height: 1.12;
-      color: var(--ink);
-      margin: 0.75rem 0;
+      font-weight: 300; line-height: 1.1; color: var(--ink); margin: 0.75rem 0;
     }
     .meet-name em { color: var(--acc); }
     .meet-pull {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.35rem,2.8vw,2rem);
-      font-weight: 400;
-      font-style: italic;
-      line-height: 1.5;
-      color: var(--ink);
-      border-left: 2px solid var(--acc);
-      padding-left: 1.5rem;
-      margin: 1.5rem 0 1.75rem;
+      font-size: clamp(1.3rem,2.6vw,1.9rem);
+      font-weight: 400; font-style: italic; line-height: 1.5;
+      color: var(--ink); border-left: 2px solid var(--acc);
+      padding-left: 1.4rem; margin: 1.4rem 0 1.6rem;
     }
-    .meet-body {
-      font-size: 0.92rem;
-      line-height: 1.96;
-      color: var(--ink2);
-      margin-bottom: 1.25rem;
-    }
-    .meet-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.66rem;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--acc);
-      transition: gap 0.22s;
-    }
-    .meet-link:hover { gap: 0.9rem; }
+    .meet-body { font-size: 0.92rem; line-height: 1.96; color: var(--ink2); margin-bottom: 1.25rem; }
 
-    /* ===== SERVICES TEASER ===== */
-    #services-tease {
+    /* SERVICES GRID */
+    #services {
       background: var(--void);
       padding: clamp(5rem,10vw,8rem) clamp(1.5rem,5vw,4rem);
     }
-    .sec-header {
-      text-align: center;
-      max-width: 560px;
-      margin: 0 auto 3.5rem;
-    }
-    .tease-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px;
-      max-width: 1200px;
-      margin: 0 auto;
+    .sec-header { text-align: center; max-width: 520px; margin: 0 auto 3rem; }
+    .svc-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; max-width: 1200px; margin: 0 auto;
       background: var(--acc-dim);
     }
-    .tease-card {
-      background: var(--deep);
-      padding: clamp(1.75rem,3.5vw,2.4rem);
-      transition: background 0.28s;
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-    }
-    .tease-card:hover { background: var(--mid); }
-    .tease-illus {
-      width: 56px;
-      height: 56px;
-      color: var(--acc);
-      opacity: 0.75;
-    }
-    .tease-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.14em;
-      color: var(--acc);
-      opacity: 0.55;
-    }
-    .tease-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.3rem,2.2vw,1.65rem);
-      font-weight: 400;
-      line-height: 1.2;
-    }
-    .tease-name em { color: var(--acc); }
-    .tease-desc {
-      font-size: 0.84rem;
-      line-height: 1.85;
-      color: var(--tm);
-      flex: 1;
-    }
-    .tease-link {
-      font-size: 0.62rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--acc);
-      transition: letter-spacing 0.22s;
-    }
-    .tease-link:hover { letter-spacing: 0.24em; }
-    .services-footer {
-      text-align: center;
-      margin-top: 2.5rem;
-    }
 
-    /* ===== COMMUNITY TEASER ===== */
+    /* COMMUNITY TEASER */
     #community-tease {
-      background: var(--parch);
-      color: var(--ink);
+      background: var(--parch); color: var(--ink);
       padding: clamp(5rem,10vw,8rem) clamp(1.5rem,5vw,4rem);
     }
     .comm-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: grid; grid-template-columns: 1fr 1fr;
       gap: clamp(3rem,6vw,5rem);
-      max-width: 1100px;
-      margin: 0 auto;
-      align-items: center;
+      max-width: 1100px; margin: 0 auto; align-items: center;
     }
-    .comm-img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
+    .comm-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+    .comm-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem,5.5vw,3.8rem);
+      font-weight: 300; line-height: 1.1;
+      color: var(--ink); margin: 0.75rem 0 1.25rem;
     }
-    .comm-text .sec-title { color: var(--ink); }
-    .comm-text .sec-title em { color: var(--acc); }
-    .comm-body {
-      font-size: 0.92rem;
-      line-height: 1.96;
-      color: var(--ink2);
-      margin: 1.25rem 0 2rem;
-    }
+    .comm-title em { color: var(--acc); }
+    .comm-body { font-size: 0.92rem; line-height: 1.96; color: var(--ink2); margin-bottom: 1.75rem; }
 
-    /* ===== MOBILE ===== */
+    /* MONTHLY EVENTS */
+    #events {
+      background: var(--mid);
+      padding: clamp(5rem,10vw,8rem) clamp(1.5rem,5vw,4rem);
+    }
+    .events-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; max-width: 1100px; margin: 3rem auto 0;
+      background: var(--acc-dim);
+    }
+    .event-card {
+      background: var(--deep); padding: clamp(2rem,4vw,2.8rem);
+      transition: background 0.28s;
+    }
+    .event-card:hover { background: var(--surface); }
+    .event-sym { font-size: 1.8rem; display: block; margin-bottom: 1.25rem; color: var(--tm); }
+    .event-label { font-size: 0.6rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--acc); margin-bottom: 0.6rem; display: block; }
+    .event-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem,2.5vw,2rem);
+      font-weight: 400; line-height: 1.2; margin-bottom: 0.75rem;
+    }
+    .event-name em { color: var(--gold); }
+    .event-desc { font-size: 0.86rem; line-height: 1.85; color: var(--tm); }
+
+    /* MOBILE */
     @media (max-width: 900px) {
-      .tease-grid { grid-template-columns: repeat(2, 1fr); }
+      .svc-grid { grid-template-columns: repeat(2, 1fr); }
+      .events-grid { grid-template-columns: 1fr; gap: 2px; }
     }
     @media (max-width: 768px) {
       .meet-grid, .comm-grid { grid-template-columns: 1fr; }
@@ -338,25 +211,21 @@
       .hero-h1 { font-size: clamp(3rem,13vw,5rem); }
     }
     @media (max-width: 480px) {
-      .tease-grid { grid-template-columns: 1fr; }
+      .svc-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="nav">
   <a href="index.html" class="nav-logo">Amethyst <span>Healing Rooms</span></a>
   <ul class="nav-links">
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="sessions.html">Sessions</a></li>
     <li><a href="community.html">Community</a></li>
-    <li><a href="training.html">Training</a></li>
   </ul>
   <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="nav-cta">Book a Session</a>
-  <button class="hamburger" aria-label="Open menu">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- HERO -->
@@ -365,57 +234,57 @@
   <div class="hero-overlay"></div>
   <div class="hero-glow"></div>
   <div class="hero-content">
-    <p class="hero-eyebrow">Amethyst Healing Rooms · Janet Clifford · Cleckheaton</p>
-    <h1 class="hero-h1">
-      You already know<br>how to <em>heal.</em>
-    </h1>
-    <p class="hero-sub">
-      A sacred community where energy, love and connection
-      bring us home to ourselves.
-    </p>
+    <p class="hero-eyebrow">Janet Clifford · Reiki Master Teacher · Cleckheaton</p>
+    <h1 class="hero-h1">You already know<br>how to <em>heal.</em></h1>
+    <p class="hero-sub">A place where everyone can come together through the energy that connects us all.</p>
     <div class="hero-ctas">
-      <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="btn-solid">Begin Your Journey</a>
-      <a href="sessions.html" class="btn-outline">Explore Sessions</a>
+      <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="btn-solid">Book a Session</a>
+      <a href="sessions.html" class="btn-outline">What We Offer</a>
     </div>
   </div>
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
 </section>
 
-<!-- FREQUENCY WAVE -->
-<div class="wave-section">
-  <div class="wave-anim">
-    <svg viewBox="0 0 2880 148" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Glow layer -->
-      <path d="M0,74 C40,74 80,24 120,24 C160,24 200,74 240,74 C280,74 320,124 360,124 C400,124 440,74 480,74 C520,74 560,24 600,24 C640,24 680,74 720,74 C760,74 800,124 840,124 C880,124 920,74 960,74 C1000,74 1040,24 1080,24 C1120,24 1160,74 1200,74 C1240,74 1280,124 1320,124 C1360,124 1400,74 1440,74 C1480,74 1520,24 1560,24 C1600,24 1640,74 1680,74 C1720,74 1760,124 1800,124 C1840,124 1880,74 1920,74 C1960,74 2000,24 2040,24 C2080,24 2120,74 2160,74 C2200,74 2240,124 2280,124 C2320,124 2360,74 2400,74 C2440,74 2480,24 2520,24 C2560,24 2600,74 2640,74 C2680,74 2720,124 2760,124 C2800,124 2840,74 2880,74"
-            fill="none" stroke="rgba(160,125,196,0.1)" stroke-width="14" stroke-linecap="round"/>
-      <!-- Main wave line -->
-      <path d="M0,74 C40,74 80,24 120,24 C160,24 200,74 240,74 C280,74 320,124 360,124 C400,124 440,74 480,74 C520,74 560,24 600,24 C640,24 680,74 720,74 C760,74 800,124 840,124 C880,124 920,74 960,74 C1000,74 1040,24 1080,24 C1120,24 1160,74 1200,74 C1240,74 1280,124 1320,124 C1360,124 1400,74 1440,74 C1480,74 1520,24 1560,24 C1600,24 1640,74 1680,74 C1720,74 1760,124 1800,124 C1840,124 1880,74 1920,74 C1960,74 2000,24 2040,24 C2080,24 2120,74 2160,74 C2200,74 2240,124 2280,124 C2320,124 2360,74 2400,74 C2440,74 2480,24 2520,24 C2560,24 2600,74 2640,74 C2680,74 2720,124 2760,124 C2800,124 2840,74 2880,74"
-            fill="none" stroke="rgba(160,125,196,0.52)" stroke-width="1.4"/>
-      <!-- Node dots at peaks/troughs (repeating) -->
-      <circle cx="120"  cy="24"  r="3.5" fill="rgba(160,125,196,0.8)"/>
-      <circle cx="360"  cy="124" r="3.5" fill="rgba(160,125,196,0.8)"/>
-      <circle cx="600"  cy="24"  r="3.5" fill="rgba(160,125,196,0.8)"/>
-      <circle cx="840"  cy="124" r="3.5" fill="rgba(160,125,196,0.8)"/>
-      <circle cx="1080" cy="24"  r="3.5" fill="rgba(160,125,196,0.8)"/>
-      <circle cx="1320" cy="124" r="3.5" fill="rgba(160,125,196,0.8)"/>
-      <circle cx="1560" cy="24"  r="3.5" fill="rgba(160,125,196,0.8)"/>
-      <circle cx="1800" cy="124" r="3.5" fill="rgba(160,125,196,0.8)"/>
-      <circle cx="2040" cy="24"  r="3.5" fill="rgba(160,125,196,0.8)"/>
-      <circle cx="2280" cy="124" r="3.5" fill="rgba(160,125,196,0.8)"/>
-      <circle cx="2520" cy="24"  r="3.5" fill="rgba(160,125,196,0.8)"/>
-      <circle cx="2760" cy="124" r="3.5" fill="rgba(160,125,196,0.8)"/>
-    </svg>
-  </div>
-  <div class="wave-labels">
-    <span class="wl wl-t wl-1">Reiki Healing</span>
-    <span class="wl wl-b wl-2">Sound Healing</span>
-    <span class="wl wl-t wl-3">Meditation</span>
-    <span class="wl wl-b wl-4">Sound Groups</span>
-    <span class="wl wl-t wl-5">Shamanic Drum</span>
-    <span class="wl wl-b wl-6">Reiki Training</span>
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="ticker-item hl">Reiki Healing</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item hl">Sound Healing</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">Crystal Bowls</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">Tuning Forks</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item hl">Shamanic Drum</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">Reiki Shares</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item hl">Usui Reiki Training</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">Monthly Circles</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">Cleckheaton, West Yorkshire</span>
+    <span class="ticker-item">·</span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item hl">Reiki Healing</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item hl">Sound Healing</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">Crystal Bowls</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">Tuning Forks</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item hl">Shamanic Drum</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">Reiki Shares</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item hl">Usui Reiki Training</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">Monthly Circles</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">Cleckheaton, West Yorkshire</span>
+    <span class="ticker-item">·</span>
   </div>
 </div>
 
@@ -425,18 +294,12 @@
     <span class="eyebrow rv">The Vision</span>
     <div class="divider divider-c rv"></div>
     <blockquote class="vision-quote rv d1">
-      "We all have the power to heal ourselves. We just need to
-      <em>remember</em> what we already know deep within us."
+      "A place where everyone can come together through an awareness of the energy that connects us all, and the <em>love</em> that we truly are."
     </blockquote>
-    <div class="divider divider-c rv d2"></div>
-    <p class="vision-body rv d2">
-      Amethyst Healing Rooms is a place where everyone comes together through
-      an awareness of the energy that connects us all, and the love that we truly are.
-      No judgement. No conditions. Just safety, warmth and the space to feel.
-    </p>
-    <p class="vision-body rv d3">
-      When you feel the energy, it can be life changing.
-    </p>
+    <p class="vision-body rv d2">No judgement. People feel safe and loved. I believe reiki starts this journey.</p>
+    <p class="vision-body rv d2">We all have the power to heal ourselves. We just need to remember what we already know deep within us.</p>
+    <div class="divider divider-c rv d3"></div>
+    <p class="vision-body rv d3" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(0.95rem,1.8vw,1.1rem); color:var(--td);">Janet Clifford, Amethyst Healing Rooms</p>
   </div>
 </section>
 
@@ -445,170 +308,100 @@
   <div class="meet-grid">
     <div class="meet-img-wrap rv">
       <div class="meet-frame"></div>
-      <img class="meet-img-main"
-           src="657449893_1251848930348039_2464343206332712562_n.jpg"
-           alt="Janet Clifford at a sacred garden well">
-      <img class="meet-img-accent"
-           src="661472770_879750938446454_1947353881289032312_n.jpg"
-           alt="Janet Clifford portrait">
+      <img class="meet-img-main" src="657449893_1251848930348039_2464343206332712562_n.jpg" alt="Janet Clifford at a sacred garden well">
+      <img class="meet-img-accent" src="661472770_879750938446454_1947353881289032312_n.jpg" alt="Janet Clifford">
     </div>
     <div class="rv d1">
-      <span class="eyebrow" style="color:var(--acc);">Meet Your Guide</span>
+      <span class="eyebrow" style="color:var(--acc);">Meet Janet</span>
       <h2 class="meet-name">Janet <em>Clifford</em></h2>
-      <blockquote class="meet-pull">
-        "Sharing this knowledge and empowering people with the energy is a good way to awaken that spark. When you feel it, it can be life changing."
-      </blockquote>
-      <p class="meet-body">
-        Janet is a Reiki Master Teacher based in Cleckheaton, West Yorkshire, specialising in
-        Usui Reiki, sound healing and shamanic practice. Her approach is entirely intuitive,
-        guided by whatever each person needs in that moment.
-      </p>
-      <p class="meet-body">
-        Over the years, she has built not just a practice, but a tribe. A living community
-        of people she has trained, who now practise themselves, who gather monthly and carry
-        the energy forward.
-      </p>
-      <a href="community.html" class="meet-link">
-        Meet the community →
-      </a>
+      <blockquote class="meet-pull">"Sharing my knowledge and empowering people with the energy is a good way to awaken that spark. When you feel it, it can be life changing."</blockquote>
+      <p class="meet-body">Reiki Master Teacher. Sound healer. Shamanic practitioner. Based in Cleckheaton, West Yorkshire. Janet works intuitively, using crystals, tuning forks and the shamanic drum when the energy calls for them.</p>
+      <p class="meet-body">Her mission is to open people to an awareness of their own energy and the power they hold to harness it. Feeling love and connection. Trusting in something higher. Feeling safe in the world.</p>
+      <a href="sessions.html" class="btn-outline-dark">See what Janet offers</a>
     </div>
   </div>
 </section>
 
-<!-- SERVICES TEASER -->
-<section id="services-tease">
+<!-- SERVICES OVERVIEW -->
+<section id="services">
   <div class="sec-header">
     <span class="eyebrow rv">The Practice</span>
     <h2 class="sec-title rv d1">What we <em>offer</em></h2>
-    <p class="sec-sub rv d2">Six pathways into healing, sound and energy.</p>
   </div>
-  <div class="tease-grid">
+  <div class="svc-grid">
 
-    <!-- 01 Reiki -->
-    <div class="tease-card rv">
-      <svg class="tease-illus" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="40" cy="40" r="28" stroke="currentColor" stroke-width="0.7" opacity="0.28"/>
-        <circle cx="40" cy="40" r="8" stroke="currentColor" stroke-width="1.2"/>
-        <ellipse cx="40" cy="21" rx="5" ry="10" stroke="currentColor" stroke-width="1.1"/>
-        <ellipse cx="40" cy="21" rx="5" ry="10" stroke="currentColor" stroke-width="1.1" transform="rotate(60 40 40)"/>
-        <ellipse cx="40" cy="21" rx="5" ry="10" stroke="currentColor" stroke-width="1.1" transform="rotate(120 40 40)"/>
-        <ellipse cx="40" cy="21" rx="5" ry="10" stroke="currentColor" stroke-width="1.1" transform="rotate(180 40 40)"/>
-        <ellipse cx="40" cy="21" rx="5" ry="10" stroke="currentColor" stroke-width="1.1" transform="rotate(240 40 40)"/>
-        <ellipse cx="40" cy="21" rx="5" ry="10" stroke="currentColor" stroke-width="1.1" transform="rotate(300 40 40)"/>
-        <circle cx="40" cy="40" r="2.5" fill="currentColor"/>
-      </svg>
-      <p class="tease-num">01</p>
-      <h3 class="tease-name">Reiki <em>Healing</em></h3>
-      <p class="tease-desc">Deeply relaxing. Crystals, tuning forks and the shamanic drum woven in when the energy calls for them.</p>
-      <a href="sessions.html#reiki" class="tease-link">Discover more →</a>
+    <div class="svc-card rv">
+      <!-- Unsplash: reiki/energy healing hands -->
+      <div class="svc-bg" style="background-image:url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <p class="svc-num">01</p>
+        <h3 class="svc-name">Reiki <em>Healing</em></h3>
+        <p class="svc-desc">With crystals, tuning forks or the shamanic drum, as the energy calls for it.</p>
+        <a href="sessions.html#reiki" class="svc-link">Learn more</a>
+      </div>
     </div>
 
-    <!-- 02 Sound Healing 1:1 -->
-    <div class="tease-card rv d1">
-      <svg class="tease-illus" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="40" y1="68" x2="40" y2="44" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        <path d="M27,44 L27,30 Q27,18 40,18 Q53,18 53,30 L53,44" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-        <path d="M22,46 Q15,38 22,30" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.65"/>
-        <path d="M15,49 Q5,38 15,27" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.35"/>
-        <path d="M58,46 Q65,38 58,30" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.65"/>
-        <path d="M65,49 Q75,38 65,27" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.35"/>
-      </svg>
-      <p class="tease-num">02</p>
-      <h3 class="tease-name">Reiki and <em>Sound Healing</em></h3>
-      <p class="tease-desc">A private 1:1 session combining reiki with therapeutic sound. Tuning forks, bowls, gong. Leaves you re-tuned.</p>
-      <a href="sessions.html#sound-reiki" class="tease-link">Discover more →</a>
+    <div class="svc-card rv d1">
+      <!-- Unsplash: sound healing/tuning forks -->
+      <div class="svc-bg" style="background-image:url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <p class="svc-num">02</p>
+        <h3 class="svc-name">Reiki and <em>Sound Healing</em></h3>
+        <p class="svc-desc">A private 1:1 session. Reiki held together with tuning forks, bowls and gong.</p>
+        <a href="sessions.html#sound-reiki" class="svc-link">Learn more</a>
+      </div>
     </div>
 
-    <!-- 03 Meditation -->
-    <div class="tease-card rv d2">
-      <svg class="tease-illus" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M18,54 Q18,70 40,70 Q62,70 62,54" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <ellipse cx="40" cy="54" rx="22" ry="6" stroke="currentColor" stroke-width="1.2"/>
-        <line x1="30" y1="70" x2="50" y2="70" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M40,48 Q34,42 40,36 Q46,30 40,22" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
-        <path d="M33,48 Q23,39 33,30" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.38"/>
-        <path d="M47,48 Q57,39 47,30" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.38"/>
-        <line x1="55" y1="66" x2="65" y2="51" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <circle cx="65" cy="49" r="3" stroke="currentColor" stroke-width="1.1"/>
-      </svg>
-      <p class="tease-num">03</p>
-      <h3 class="tease-name">Meditation and <em>Sound</em></h3>
-      <p class="tease-desc">Small groups of up to six. Crystal singing bowls and gong guide you inward. You feel it for days.</p>
-      <a href="sessions.html#meditation" class="tease-link">Discover more →</a>
+    <div class="svc-card rv d2">
+      <!-- Unsplash: meditation/peace -->
+      <div class="svc-bg" style="background-image:url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <p class="svc-num">03</p>
+        <h3 class="svc-name">Meditation and <em>Sound</em></h3>
+        <p class="svc-desc">Groups of up to six. Crystal singing bowls and gong. You feel it for days.</p>
+        <a href="sessions.html#meditation" class="svc-link">Learn more</a>
+      </div>
     </div>
 
-    <!-- 04 Sound Group -->
-    <div class="tease-card rv">
-      <svg class="tease-illus" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="40" cy="40" r="5" stroke="currentColor" stroke-width="1.1"/>
-        <circle cx="40" cy="13" r="4" stroke="currentColor" stroke-width="1.2"/>
-        <path d="M37,17 Q37,24 40,24 Q43,24 43,17" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-        <circle cx="62" cy="25" r="4" stroke="currentColor" stroke-width="1.2"/>
-        <path d="M59,29 Q59,36 62,36 Q65,36 65,29" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-        <circle cx="55" cy="61" r="4" stroke="currentColor" stroke-width="1.2"/>
-        <path d="M52,65 L55,72 L58,65" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="25" cy="61" r="4" stroke="currentColor" stroke-width="1.2"/>
-        <path d="M22,65 L25,72 L28,65" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="18" cy="25" r="4" stroke="currentColor" stroke-width="1.2"/>
-        <path d="M15,29 Q15,36 18,36 Q21,36 21,29" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-        <line x1="40" y1="17" x2="40" y2="35" stroke="currentColor" stroke-width="0.55" opacity="0.4"/>
-        <line x1="58" y1="29" x2="44" y2="37" stroke="currentColor" stroke-width="0.55" opacity="0.4"/>
-        <line x1="52" y1="57" x2="43" y2="44" stroke="currentColor" stroke-width="0.55" opacity="0.4"/>
-        <line x1="28" y1="57" x2="37" y2="44" stroke="currentColor" stroke-width="0.55" opacity="0.4"/>
-        <line x1="22" y1="29" x2="36" y2="37" stroke="currentColor" stroke-width="0.55" opacity="0.4"/>
-      </svg>
-      <p class="tease-num">04</p>
-      <h3 class="tease-name">Sound Healing <em>Group</em></h3>
-      <p class="tease-desc">Monthly community sessions in Cleckheaton. Open to all. Come and feel the power of collective resonance.</p>
-      <a href="community.html#gatherings" class="tease-link">Discover more →</a>
+    <div class="svc-card rv">
+      <!-- Unsplash: community/group -->
+      <div class="svc-bg" style="background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <p class="svc-num">04</p>
+        <h3 class="svc-name">Monthly Sound <em>Healing Group</em></h3>
+        <p class="svc-desc">Open community sessions at a local space in Cleckheaton. Everyone welcome.</p>
+        <a href="community.html#gatherings" class="svc-link">Learn more</a>
+      </div>
     </div>
 
-    <!-- 05 Shamanic Drumming -->
-    <div class="tease-card rv d1">
-      <svg class="tease-illus" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="40" cy="40" r="30" stroke="currentColor" stroke-width="1.4"/>
-        <circle cx="40" cy="40" r="22" stroke="currentColor" stroke-width="0.55" opacity="0.45"/>
-        <path d="M40,40 Q44,36 44,40 Q44,46 40,48 Q34,48 32,42 Q30,34 36,30 Q44,27 50,34 Q55,42 52,52 Q47,61 37,61 Q24,59 22,47 Q20,33 30,25"
-              stroke="currentColor" stroke-width="1.15" stroke-linecap="round" fill="none"/>
-        <line x1="40" y1="10" x2="40" y2="70" stroke="currentColor" stroke-width="0.45" opacity="0.22"/>
-        <line x1="10" y1="40" x2="70" y2="40" stroke="currentColor" stroke-width="0.45" opacity="0.22"/>
-      </svg>
-      <p class="tease-num">05</p>
-      <h3 class="tease-name">Shamanic <em>Drumming</em></h3>
-      <p class="tease-desc">Monthly drumming circles at a local community space. Ancient technology. Still as alive as it ever was.</p>
-      <a href="community.html#gatherings" class="tease-link">Discover more →</a>
+    <div class="svc-card rv d1">
+      <!-- Unsplash: forest/nature/shamanic -->
+      <div class="svc-bg" style="background-image:url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <p class="svc-num">05</p>
+        <h3 class="svc-name">Monthly Shamanic <em>Drumming</em></h3>
+        <p class="svc-desc">Monthly drumming circles. The oldest healing technology there is.</p>
+        <a href="community.html#gatherings" class="svc-link">Learn more</a>
+      </div>
     </div>
 
-    <!-- 06 Training -->
-    <div class="tease-card rv d2">
-      <svg class="tease-illus" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="40" y1="10" x2="40" y2="28" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        <path d="M34,16 L40,10 L46,16" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="40" cy="40" r="6" stroke="currentColor" stroke-width="1.2"/>
-        <line x1="40" y1="28" x2="40" y2="34" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
-        <line x1="40" y1="46" x2="40" y2="52" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
-        <line x1="28" y1="40" x2="34" y2="40" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
-        <line x1="46" y1="40" x2="52" y2="40" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
-        <line x1="32" y1="32" x2="36" y2="36" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
-        <line x1="44" y1="44" x2="48" y2="48" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
-        <line x1="48" y1="32" x2="44" y2="36" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
-        <line x1="36" y1="44" x2="32" y2="48" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
-        <line x1="40" y1="52" x2="40" y2="70" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        <path d="M34,64 L40,70 L46,64" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="24" cy="62" r="2.8" stroke="currentColor" stroke-width="1"/>
-        <circle cx="56" cy="62" r="2.8" stroke="currentColor" stroke-width="1"/>
-        <line x1="32" y1="65" x2="27" y2="62" stroke="currentColor" stroke-width="0.55" opacity="0.5"/>
-        <line x1="48" y1="65" x2="53" y2="62" stroke="currentColor" stroke-width="0.55" opacity="0.5"/>
-      </svg>
-      <p class="tease-num">06</p>
-      <h3 class="tease-name">Reiki <em>Training</em></h3>
-      <p class="tease-desc">Janet's greatest passion. Usui Reiki from beginner to Master. Awakening the healer that was always in you.</p>
-      <a href="training.html" class="tease-link">Discover more →</a>
+    <div class="svc-card rv d2">
+      <!-- Unsplash: teaching/hands/light -->
+      <div class="svc-bg" style="background-image:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80')"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <p class="svc-num">06</p>
+        <h3 class="svc-name">Usui Reiki <em>Training</em></h3>
+        <p class="svc-desc">Janet's greatest passion. All levels, from beginner to Reiki Master.</p>
+        <a href="sessions.html#training" class="svc-link">Learn more</a>
+      </div>
     </div>
 
-  </div>
-  <div class="services-footer rv">
-    <a href="sessions.html" class="btn-outline" style="margin-top:1rem;">View all sessions in detail</a>
   </div>
 </section>
 
@@ -616,39 +409,59 @@
 <section id="community-tease">
   <div class="comm-grid">
     <div class="rv">
-      <img src="657253396_1440155630983374_4627450917287759395_n.jpg"
-           class="comm-img" alt="Janet at a sacred healing garden">
+      <img src="657253396_1440155630983374_4627450917287759395_n.jpg" class="comm-img" alt="Janet at a sacred healing garden">
     </div>
     <div class="rv d1">
       <span class="eyebrow" style="color:var(--acc);">The Tribe</span>
-      <h2 class="sec-title" style="color:var(--ink);">More than a practice.<br>A <em>community.</em></h2>
-      <p class="comm-body">
-        Janet has trained and attuned many people to Reiki over the years.
-        Several of them are now practitioners themselves. Together they form
-        a genuine tribe: a lineage of people who felt the energy, had their
-        spark awakened, and chose to carry it forward.
-      </p>
-      <p class="comm-body">
-        Monthly reiki shares, sound healing circles and shamanic drumming
-        gatherings bring the community together. Everyone is welcome.
-      </p>
+      <h2 class="comm-title">Not just about one <em>person.</em></h2>
+      <p class="comm-body">Many of the people Janet has taught reiki to are now practitioners themselves. Together they form a community, gathering monthly to share energy, support each other and grow.</p>
+      <p class="comm-body">This is what Amethyst Healing Rooms is really about. A place where the love and energy that connects us all is felt, not just spoken about.</p>
       <a href="community.html" class="btn-outline-dark">Meet the community</a>
     </div>
   </div>
 </section>
 
-<!-- CTA BAND -->
+<!-- MONTHLY EVENTS -->
+<section id="events">
+  <div style="text-align:center; max-width:560px; margin:0 auto;">
+    <span class="eyebrow rv">Monthly Gatherings</span>
+    <h2 class="sec-title rv d1">Come and feel<br>the <em>energy.</em></h2>
+    <p class="sec-sub rv d2">Three regular events in Cleckheaton. Open to all. No experience needed.</p>
+  </div>
+  <div class="events-grid">
+    <div class="event-card rv">
+      <span class="event-sym">✦</span>
+      <span class="event-label">Monthly</span>
+      <h3 class="event-name">Reiki <em>Share</em></h3>
+      <p class="event-desc">Everyone gets together to share reiki energy. Everyone gives, everyone receives. Practitioners and newcomers in circle together.</p>
+    </div>
+    <div class="event-card rv d1">
+      <span class="event-sym">◎</span>
+      <span class="event-label">Monthly · Community Room</span>
+      <h3 class="event-name">Sound Healing <em>Group</em></h3>
+      <p class="event-desc">Crystal bowls and gong at a local community space. Open to everyone. The collective experience of sound has its own kind of power.</p>
+    </div>
+    <div class="event-card rv d2">
+      <span class="event-sym">∿</span>
+      <span class="event-label">Monthly · Community Room</span>
+      <h3 class="event-name">Shamanic <em>Drumming</em></h3>
+      <p class="event-desc">Monthly drumming circle at a local community space. No experience needed. Just come and be present.</p>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:2.5rem;" class="rv">
+    <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="btn-outline">Check upcoming dates on Facebook</a>
+  </div>
+</section>
+
+<!-- CTA -->
 <div class="cta-band">
   <div class="cta-inner">
     <span class="eyebrow rv">Begin Here</span>
     <h2 class="cta-hl rv d1">The energy is already<br><em>within you.</em></h2>
-    <p class="cta-sub rv d2">
-      Whether you come for healing, for community, or to discover your
-      own ability to channel — the door is open. You are welcome here.
-    </p>
+    <p class="cta-sub rv d2">Whether you come for healing, for community, or to learn reiki yourself, the door is open.</p>
     <div class="cta-btns rv d3">
       <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="btn-solid">Book a Session</a>
-      <a href="https://www.instagram.com/sham69" target="_blank" rel="noopener" class="btn-outline">Follow on Instagram</a>
+      <a href="sessions.html" class="btn-outline">All Sessions</a>
     </div>
   </div>
 </div>
@@ -658,12 +471,8 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <h2>Amethyst <em>Healing Rooms</em></h2>
-      <p class="footer-tag">
-        A place where everyone comes together through an awareness of
-        the energy that connects us all, and the love that we truly are.
-        Cleckheaton, West Yorkshire.
-      </p>
-      <p class="footer-copy">2025 Amethyst Healing Rooms. Janet Clifford.</p>
+      <p class="footer-tag">A place where everyone can come together through an awareness of the energy that connects us all, and the love that we truly are.</p>
+      <p class="footer-copy">2025 Amethyst Healing Rooms. Janet Clifford. Cleckheaton.</p>
     </div>
     <nav class="footer-nav">
       <h4>Navigate</h4>
@@ -671,7 +480,6 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="sessions.html">Sessions</a></li>
         <li><a href="community.html">Community</a></li>
-        <li><a href="training.html">Reiki Training</a></li>
       </ul>
     </nav>
     <nav class="footer-nav">
@@ -679,7 +487,7 @@
       <ul>
         <li><a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener">Facebook</a></li>
         <li><a href="https://www.instagram.com/sham69" target="_blank" rel="noopener">Instagram: @sham69</a></li>
-        <li><a href="#" style="cursor:default;">Cleckheaton, BD12 7HG</a></li>
+        <li><span style="font-size:0.86rem;color:var(--ink2);">Cleckheaton, BD12 7HG</span></li>
       </ul>
     </nav>
   </div>
@@ -687,13 +495,8 @@
 
 <script>
   const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  }, { passive: true });
-
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
+  const io = new IntersectionObserver(entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')), { threshold: 0.1 });
   document.querySelectorAll('.rv').forEach(el => io.observe(el));
 </script>
 </body>
