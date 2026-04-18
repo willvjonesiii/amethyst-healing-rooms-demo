@@ -177,8 +177,10 @@
     }
     .testimonials-header .divider { margin: 1.4rem auto; }
     .testimonials-placeholder {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 2px;
+    }
+    .testimonials-placeholder .t-card {
+      flex: 0 0 calc(33.333% - 2px); min-width: 260px;
     }
     .t-card {
       background: var(--mid);
@@ -361,22 +363,36 @@
     </div>
 
     <div class="testimonials-placeholder">
+
       <div class="t-card rv">
-        <p class="t-card-body">"Coming soon from Janet's Facebook reviews."</p>
-        <span class="t-card-attr">Testimonial placeholder</span>
+        <p class="t-card-body">"I started having reiki sessions and loved how it made me feel — it made me want to learn more. The training was amazing. I thoroughly enjoyed learning about the history of reiki and how it promotes healing for myself and others. Janet was extremely welcoming and I would highly recommend it."</p>
+        <span class="t-card-attr">Dionne</span>
       </div>
+
       <div class="t-card rv d1">
-        <p class="t-card-body">"Coming soon from Janet's Facebook reviews."</p>
-        <span class="t-card-attr">Testimonial placeholder</span>
+        <p class="t-card-body">"Reiki has had a massive impact on my life for the better. It makes me feel relaxed, calm and at peace. I now feel more aligned with myself, other people and the universe — we are all connected. I do the Hatsurei Ho reiki meditation daily, which helps me start each day with calm and clarity."</p>
+        <span class="t-card-attr">Dionne</span>
       </div>
+
       <div class="t-card rv d2">
-        <p class="t-card-body">"Coming soon from Janet's Facebook reviews."</p>
-        <span class="t-card-attr">Testimonial placeholder</span>
+        <p class="t-card-body">"Janet is a fantastic practitioner. She's kind, considerate, empathic and has a great energy about her. I've really enjoyed the sessions we've had together and look forward to continuing more in the future."</p>
+        <span class="t-card-attr">Chris</span>
       </div>
+
+      <div class="t-card rv">
+        <p class="t-card-body">"There are many teachers out there. I found Janet to have the most calming energy — she explains everything clearly and calmly. She just has that beautiful soul. Reiki helped me stop and think clearly, see things differently. It works differently for everyone, but give it a try. The transformation is gradual. Like a chrysalis to a butterfly."</p>
+        <span class="t-card-attr">Beckie</span>
+      </div>
+
+      <div class="t-card rv d1">
+        <p class="t-card-body">"I'd never really understood what reiki did for others. Trying crystal bowl sound healing is how I met Janet, and when I heard she was offering training I thought she was the best person to learn from. It was a lovely day — easy pace, no question was wrong. I particularly liked knowing there would be a monthly follow-up to practise."</p>
+        <span class="t-card-attr">Katie</span>
+      </div>
+
     </div>
 
     <div class="testimonials-note rv">
-      <p>Read more from Janet's community on Facebook.</p>
+      <p>More reviews on Janet's Facebook page.</p>
       <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="btn-outline-dark">Visit the Facebook page</a>
     </div>
   </div>
