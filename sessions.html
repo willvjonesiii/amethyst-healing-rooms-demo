@@ -134,63 +134,96 @@
       padding: 0.38rem 0.85rem;
     }
 
-    /* TRAINING LEVELS */
+    /* TRAINING LEVELS — ACCORDION */
     .training-levels-wrap {
       background: var(--void);
       padding: clamp(3rem,6vw,5rem) clamp(1.5rem,5vw,4rem) clamp(5rem,10vw,7rem);
     }
-    .training-levels-inner {
-      max-width: 1160px; margin: 0 auto;
+    .training-levels-inner { max-width: 980px; margin: 0 auto; }
+    .level-acc-item { border-top: 1px solid var(--acc-dim); }
+    .level-acc-item:last-child { border-bottom: 1px solid var(--acc-dim); }
+    .level-acc-btn {
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: grid; grid-template-columns: 72px 1fr auto;
+      gap: 0 clamp(1.5rem,3vw,2.5rem);
+      align-items: center;
+      padding: clamp(1.6rem,3vw,2.2rem) 0;
+      text-align: left; transition: opacity 0.2s;
     }
-    .level-row {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 2rem clamp(3rem,5vw,5rem);
-      border-top: 1px solid var(--acc-dim);
-      padding: clamp(2.5rem,4vw,3.5rem) 0;
-      align-items: start;
-    }
-    .level-row:last-child { border-bottom: 1px solid var(--acc-dim); }
-    .level-num {
-      font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--acc); display: block; margin-bottom: 0.5rem;
-    }
-    .level-title {
+    .level-acc-btn:hover { opacity: 0.75; }
+    .level-acc-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.5rem,2.5vw,2rem);
-      font-weight: 300; line-height: 1.1; color: var(--tl);
-      margin-bottom: 0.3rem;
+      font-size: clamp(2.8rem,6vw,5rem);
+      font-weight: 300; line-height: 1;
+      color: var(--acc); opacity: 0.15;
+      transition: opacity 0.38s;
     }
-    .level-title em { color: var(--acc); font-style: normal; }
-    .level-sub {
-      display: block; font-family: 'Cormorant Garamond', serif;
-      font-size: 0.88rem; font-style: italic; color: var(--td);
+    .level-acc-item.open .level-acc-num { opacity: 0.6; }
+    .level-acc-label {
+      font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--acc); display: block; margin-bottom: 0.3rem;
     }
-    .level-price {
-      display: inline-block; margin-top: 1.2rem;
+    .level-acc-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem; font-weight: 300; color: var(--gold);
+      font-size: clamp(1.6rem,3vw,2.4rem);
+      font-weight: 300; line-height: 1.05; color: var(--tl);
+      display: block;
+    }
+    .level-acc-name em { color: var(--acc); font-style: italic; }
+    .level-acc-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.88rem; font-style: italic;
+      color: var(--td); display: block; margin-top: 0.2rem;
+    }
+    .level-acc-meta {
+      display: flex; flex-direction: column;
+      align-items: flex-end; gap: 0.65rem; flex-shrink: 0;
+    }
+    .level-acc-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem; font-weight: 300; color: var(--gold);
+    }
+    .level-acc-toggle {
+      width: 30px; height: 30px; border-radius: 50%;
+      border: 1px solid var(--acc-dim);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--acc); font-size: 1.2rem; line-height: 1;
+      transition: transform 0.38s ease, border-color 0.3s, background 0.3s;
+      flex-shrink: 0;
+    }
+    .level-acc-item.open .level-acc-toggle {
+      transform: rotate(45deg);
+      border-color: var(--acc);
+      background: rgba(160,125,196,0.14);
+    }
+    .level-acc-body {
+      height: 0; overflow: hidden;
+      transition: height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .level-acc-body-inner {
+      padding: 0 0 clamp(2rem,4vw,3rem) calc(72px + clamp(1.5rem,3vw,2.5rem));
     }
     .level-desc {
-      font-size: 0.9rem; line-height: 1.9; color: var(--tm);
-      margin-bottom: 0.9rem;
+      font-size: 0.9rem; line-height: 1.9; color: var(--tm); margin-bottom: 0.9rem;
     }
     .level-about-head {
-      display: block; font-size: 0.6rem; letter-spacing: 0.2em;
+      display: block; font-size: 0.58rem; letter-spacing: 0.22em;
       text-transform: uppercase; color: var(--acc);
       margin: 1.5rem 0 0.9rem;
+      padding-top: 1.4rem; border-top: 1px solid rgba(160,125,196,0.18);
     }
     .level-about p {
-      font-size: 0.88rem; line-height: 1.9; color: var(--tm);
-      margin-bottom: 0.75rem;
+      font-size: 0.88rem; line-height: 1.9; color: var(--tm); margin-bottom: 0.75rem;
     }
     .level-note {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem; font-style: italic; color: var(--td);
-      margin-top: 1rem; display: block;
+      font-size: 1rem; font-style: italic; color: var(--acc);
+      margin-top: 1.2rem; display: block;
     }
-    @media (max-width: 700px) {
-      .level-row { grid-template-columns: 1fr; }
+    @media (max-width: 560px) {
+      .level-acc-btn { grid-template-columns: 44px 1fr auto; }
+      .level-acc-body-inner { padding-left: calc(44px + 1rem); }
+      .level-acc-num { font-size: 2rem; }
     }
 
     /* BOOKING */
@@ -338,53 +371,77 @@
 </section>
 
 <!-- TRAINING LEVELS -->
-<div class="training-levels-wrap">
+<div class="training-levels-wrap rv">
   <div class="training-levels-inner">
 
     <!-- SHODEN -->
-    <div class="level-row rv">
-      <div>
-        <span class="level-num">Level 1</span>
-        <h3 class="level-title"><em>Shoden</em></h3>
-        <span class="level-sub">The Beginning</span>
-        <span class="level-price">£100</span>
-      </div>
-      <div>
-        <p class="level-desc">Your first day with reiki is a special one. It could be likened to an awakening of the spiritual essence we all are. Once you feel the reiki energy for yourself it can be quite profound. Open to it, trust the process, and it takes you on a journey of self-discovery — remembering your true self, and slowly finding that calm space within.</p>
-        <span class="level-about-head">About the day</span>
-        <div class="level-about">
-          <p>Groups of no more than four, in a relaxed, calm space. Trust that the universe will align the right people to share the day with you — energetically matched, so you feel at ease.</p>
-          <p>The morning covers the history of reiki and the founder Mikao Usui: how reiki came to be, the lineage of those who continued his work, and how it became one of the world's most recognised energy healing modalities. You then receive your attunement — opening you to the energy for self-healing and healing others.</p>
-          <p>The afternoon is practical. You work with the energy through meditations and hands-on healing originally taught by Mikao Usui. The chakra system and its relationship to reiki is explained. The day finishes with you giving and receiving a full-body hands-on reiki session.</p>
-          <p>You leave with a certificate and a full-colour 42-page manual. Join the community through the WhatsApp group and monthly reiki share meet-ups.</p>
+    <div class="level-acc-item open">
+      <button class="level-acc-btn" aria-expanded="true">
+        <span class="level-acc-num">01</span>
+        <div>
+          <span class="level-acc-label">Level 1</span>
+          <span class="level-acc-name"><em>Shoden</em></span>
+          <span class="level-acc-sub">The Beginning</span>
         </div>
-        <span class="level-note">A lovely group of like-minded people are waiting to meet you.</span>
+        <div class="level-acc-meta">
+          <span class="level-acc-price">£100</span>
+          <span class="level-acc-toggle">+</span>
+        </div>
+      </button>
+      <div class="level-acc-body">
+        <div class="level-acc-body-inner">
+          <p class="level-desc">Your first day with reiki is a special one. It could be likened to an awakening of the spiritual essence we all are. Once you feel the reiki energy for yourself it can be quite profound. Open to it, trust the process, and it takes you on a journey of self-discovery — remembering your true self, and slowly finding that calm space within.</p>
+          <span class="level-about-head">About the day</span>
+          <div class="level-about">
+            <p>Groups of no more than four, in a relaxed, calm space. Trust that the universe will align the right people to share the day with you — energetically matched, so you feel at ease.</p>
+            <p>The morning covers the history of reiki and the founder Mikao Usui: how reiki came to be, the lineage of those who continued his work, and how it became one of the world's most recognised energy healing modalities. You then receive your attunement — opening you to the energy for self-healing and healing others.</p>
+            <p>The afternoon is practical. You work with the energy through meditations and hands-on healing originally taught by Mikao Usui. The chakra system and its relationship to reiki is explained. The day finishes with you giving and receiving a full-body hands-on reiki session.</p>
+            <p>You leave with a certificate and a full-colour 42-page manual. Join the community through the WhatsApp group and monthly reiki share meet-ups.</p>
+          </div>
+          <span class="level-note">A lovely group of like-minded people are waiting to meet you.</span>
+        </div>
       </div>
     </div>
 
     <!-- OKUDEN -->
-    <div class="level-row rv">
-      <div>
-        <span class="level-num">Level 2</span>
-        <h3 class="level-title"><em>Okuden</em></h3>
-        <span class="level-sub">The Inner Teachings</span>
-      </div>
-      <div>
-        <p class="level-desc">Level 2 introduces three symbols that bring a more focused energy. The first two work on a physical, mental and emotional level. The third brings a feeling of oneness and is used for distant healing — the ability to send healing to any living being, anywhere, just as powerfully as being in the same room.</p>
-        <p class="level-desc">Level 2 also develops intuitive working: following that inner knowing to more easily direct the energy where it is needed. There are further tools at this level for more powerful, focused healing sessions.</p>
+    <div class="level-acc-item">
+      <button class="level-acc-btn" aria-expanded="false">
+        <span class="level-acc-num">02</span>
+        <div>
+          <span class="level-acc-label">Level 2</span>
+          <span class="level-acc-name"><em>Okuden</em></span>
+          <span class="level-acc-sub">The Inner Teachings</span>
+        </div>
+        <div class="level-acc-meta">
+          <span class="level-acc-toggle">+</span>
+        </div>
+      </button>
+      <div class="level-acc-body">
+        <div class="level-acc-body-inner">
+          <p class="level-desc">Level 2 introduces three symbols that bring a more focused energy. The first two work on a physical, mental and emotional level. The third brings a feeling of oneness and is used for distant healing — the ability to send healing to any living being, anywhere, just as powerfully as being in the same room.</p>
+          <p class="level-desc">Level 2 also develops intuitive working: following that inner knowing to more easily direct the energy where it is needed. There are further tools at this level for more powerful, focused healing sessions.</p>
+        </div>
       </div>
     </div>
 
     <!-- SHINPIDEN -->
-    <div class="level-row rv">
-      <div>
-        <span class="level-num">Master Level</span>
-        <h3 class="level-title"><em>Shinpiden</em></h3>
-        <span class="level-sub">Mystery Teaching</span>
-        <span class="level-price">£250</span>
-      </div>
-      <div>
-        <p class="level-desc">A two-day course. Enquire via Facebook for details and upcoming dates.</p>
+    <div class="level-acc-item">
+      <button class="level-acc-btn" aria-expanded="false">
+        <span class="level-acc-num">03</span>
+        <div>
+          <span class="level-acc-label">Master Level</span>
+          <span class="level-acc-name"><em>Shinpiden</em></span>
+          <span class="level-acc-sub">Mystery Teaching</span>
+        </div>
+        <div class="level-acc-meta">
+          <span class="level-acc-price">£250</span>
+          <span class="level-acc-toggle">+</span>
+        </div>
+      </button>
+      <div class="level-acc-body">
+        <div class="level-acc-body-inner">
+          <p class="level-desc">A two-day course. Enquire via Facebook for details and upcoming dates.</p>
+        </div>
       </div>
     </div>
 
@@ -435,6 +492,28 @@
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
   const io = new IntersectionObserver(entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')), { threshold: 0.08 });
   document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  // Reiki level accordion
+  const accItems = document.querySelectorAll('.level-acc-item');
+  accItems.forEach(item => {
+    const body  = item.querySelector('.level-acc-body');
+    const inner = body.querySelector('.level-acc-body-inner');
+    const btn   = item.querySelector('.level-acc-btn');
+    if (item.classList.contains('open')) body.style.height = inner.offsetHeight + 'px';
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      accItems.forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.level-acc-body').style.height = '0';
+        i.querySelector('.level-acc-btn').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        body.style.height = inner.offsetHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 </script>
 </body>
 </html>
