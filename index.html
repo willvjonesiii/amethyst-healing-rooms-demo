@@ -178,6 +178,116 @@
     .comm-body { font-size: 0.92rem; line-height: 1.96; color: var(--ink2); margin-bottom: 1.75rem; }
 
 
+    /* TESTIMONIAL CAROUSEL */
+    .tc-band {
+      background: var(--deep);
+      padding: clamp(4rem,8vw,6rem) clamp(1.5rem,5vw,4rem);
+    }
+    .tc-head {
+      text-align: center; margin-bottom: clamp(2.5rem,4vw,3.5rem);
+    }
+    .tc-wrap {
+      max-width: 760px; margin: 0 auto; position: relative;
+    }
+    .tc-stage { overflow: hidden; }
+    .tc-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tc-card {
+      flex: 0 0 100%;
+      background: var(--mid);
+      padding: clamp(2.5rem,5vw,3.5rem) clamp(2rem,4vw,3rem);
+      position: relative;
+    }
+    .tc-qmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 8rem; line-height: 0.55;
+      color: var(--acc); opacity: 0.2;
+      display: block; margin-bottom: 1.2rem;
+      font-style: italic; user-select: none;
+    }
+    .tc-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.15rem,2vw,1.45rem);
+      font-style: italic; font-weight: 300;
+      line-height: 1.65; color: var(--tl);
+      margin-bottom: 1.25rem;
+    }
+    .tc-more {
+      display: inline-block; background: none; border: none;
+      border-bottom: 1px solid var(--acc); padding: 0 0 1px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.68rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--acc);
+      cursor: pointer; margin-bottom: 1.25rem;
+      transition: opacity 0.2s;
+    }
+    .tc-more:hover { opacity: 0.65; }
+    .tc-attr {
+      display: block; font-size: 0.62rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--td);
+    }
+    .tc-nav {
+      display: flex; align-items: center;
+      justify-content: center; gap: 1.4rem; margin-top: 2rem;
+    }
+    .tc-arrow {
+      width: 42px; height: 42px;
+      background: none; border: 1px solid var(--acc-dim);
+      color: var(--tm); font-size: 1rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .tc-arrow:hover { border-color: var(--acc); color: var(--acc); }
+    .tc-dots { display: flex; gap: 0.5rem; }
+    .tc-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--acc-dim); border: none;
+      cursor: pointer; padding: 0;
+      transition: background 0.25s, transform 0.25s;
+    }
+    .tc-dot.active { background: var(--acc); transform: scale(1.35); }
+
+    /* LIGHTBOX */
+    .t-lightbox {
+      position: fixed; inset: 0; z-index: 900;
+      background: rgba(11,8,23,0.92);
+      display: flex; align-items: center; justify-content: center;
+      padding: 2rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.28s;
+    }
+    .t-lightbox.open { opacity: 1; pointer-events: all; }
+    .t-lb-inner {
+      max-width: 640px; width: 100%;
+      background: var(--mid); padding: clamp(2.5rem,5vw,4rem);
+      position: relative;
+    }
+    .t-lb-qmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem; line-height: 0.5;
+      color: var(--acc); opacity: 0.25;
+      display: block; margin-bottom: 1.5rem; font-style: italic;
+    }
+    .t-lb-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.05rem,1.8vw,1.3rem);
+      font-style: italic; font-weight: 300;
+      line-height: 1.7; color: var(--tl); margin-bottom: 1.5rem;
+    }
+    .t-lb-attr {
+      font-size: 0.62rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--acc);
+    }
+    .t-lb-close {
+      position: absolute; top: 1rem; right: 1.2rem;
+      background: none; border: none; cursor: pointer;
+      font-size: 1.6rem; color: var(--td); line-height: 1;
+      transition: color 0.2s;
+    }
+    .t-lb-close:hover { color: var(--tl); }
+
     /* MOBILE */
     @media (max-width: 900px) {
       .svc-grid { grid-template-columns: repeat(2, 1fr); }
@@ -393,6 +503,80 @@
   </div>
 </section>
 
+<!-- TESTIMONIALS CAROUSEL -->
+<div class="tc-band">
+  <div class="tc-head rv">
+    <span class="eyebrow">In Their Words</span>
+    <h2 class="sec-title" style="color:var(--tl);">What people <em>say.</em></h2>
+  </div>
+  <div class="tc-wrap rv d1">
+    <div class="tc-stage">
+      <div class="tc-track" id="tcTrack">
+
+        <div class="tc-card">
+          <span class="tc-qmark">"</span>
+          <p class="tc-quote">Reiki has had a massive impact on my life for the better. It makes me feel relaxed, calm and at peace. I now feel more aligned with myself, other people and the universe — we are all connected.</p>
+          <button class="tc-more" data-lb="tlb0">Read more</button>
+          <span class="tc-attr">Dionne</span>
+        </div>
+
+        <div class="tc-card">
+          <span class="tc-qmark">"</span>
+          <p class="tc-quote">There are many teachers out there. I found Janet to have the most calming energy — she explains everything clearly and calmly. She just has that beautiful soul.</p>
+          <button class="tc-more" data-lb="tlb1">Read more</button>
+          <span class="tc-attr">Beckie</span>
+        </div>
+
+        <div class="tc-card">
+          <span class="tc-qmark">"</span>
+          <p class="tc-quote">Janet is a fantastic practitioner. She's kind, considerate, empathic and has a great energy about her. I've really enjoyed the sessions we've had together and look forward to continuing more in the future.</p>
+          <span class="tc-attr">Chris</span>
+        </div>
+
+        <div class="tc-card">
+          <span class="tc-qmark">"</span>
+          <p class="tc-quote">I'd never really understood what reiki did for others. I tried it a few times without feeling much — I kept listening to others talk about how it helped them, so I knew there must be something in it for me too.</p>
+          <button class="tc-more" data-lb="tlb2">Read more</button>
+          <span class="tc-attr">Katie</span>
+        </div>
+
+      </div>
+    </div>
+    <div class="tc-nav">
+      <button class="tc-arrow" id="tcPrev">&#8592;</button>
+      <div class="tc-dots" id="tcDots"></div>
+      <button class="tc-arrow" id="tcNext">&#8594;</button>
+    </div>
+  </div>
+</div>
+
+<!-- LIGHTBOXES -->
+<div class="t-lightbox" id="tlb0">
+  <div class="t-lb-inner">
+    <button class="t-lb-close" data-close="tlb0">&#215;</button>
+    <span class="t-lb-qmark">"</span>
+    <p class="t-lb-quote">Reiki has had a massive impact on my life for the better. It makes me feel relaxed, calm and at peace. I now feel more aligned with myself, other people and the universe — we are all connected. I do the Hatsurei Ho reiki meditation daily, which helps me start each day with calm and clarity. I'm so blessed and grateful that reiki was introduced to me.</p>
+    <p class="t-lb-attr">Dionne</p>
+  </div>
+</div>
+
+<div class="t-lightbox" id="tlb1">
+  <div class="t-lb-inner">
+    <button class="t-lb-close" data-close="tlb1">&#215;</button>
+    <span class="t-lb-qmark">"</span>
+    <p class="t-lb-quote">There are many teachers out there. I found Janet to have the most calming energy — she explains everything clearly and calmly. She just has that beautiful soul.<br><br>Reiki helped me stop and think clearly, see things differently. It calms your mind and helps you focus on what serves you and let go of what doesn't. It works differently for everyone — but give it a try. You may be pleasantly surprised how your mindset changes, and how free you become.<br><br>The transformation is gradual. Like a chrysalis to a butterfly.</p>
+    <p class="t-lb-attr">Beckie</p>
+  </div>
+</div>
+
+<div class="t-lightbox" id="tlb2">
+  <div class="t-lb-inner">
+    <button class="t-lb-close" data-close="tlb2">&#215;</button>
+    <span class="t-lb-qmark">"</span>
+    <p class="t-lb-quote">I'd never really understood what reiki did for others. I tried it a few times without feeling much. I kept listening to others talk about how it helped them, so I knew there must be something in it for me too. Trying crystal bowl sound healing is how I met Janet.<br><br>When I heard she was offering training, I thought she was the best person to learn from. It was a lovely day — easy pace, no question was wrong. I particularly liked knowing there would be a monthly follow-up to practise. That was reassuring.</p>
+    <p class="t-lb-attr">Katie</p>
+  </div>
+</div>
 
 <!-- CTA -->
 <div class="cta-band">
@@ -439,6 +623,38 @@
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
   const io = new IntersectionObserver(entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')), { threshold: 0.1 });
   document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  // Testimonial carousel
+  const tcTrack = document.getElementById('tcTrack');
+  const tcDots  = document.getElementById('tcDots');
+  if (tcTrack) {
+    const tcCards = tcTrack.querySelectorAll('.tc-card');
+    let cur = 0;
+    tcCards.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'tc-dot' + (i === 0 ? ' active' : '');
+      d.addEventListener('click', () => go(i));
+      tcDots.appendChild(d);
+    });
+    function go(n) {
+      cur = ((n % tcCards.length) + tcCards.length) % tcCards.length;
+      tcTrack.style.transform = 'translateX(-' + (cur * 100) + '%)';
+      tcDots.querySelectorAll('.tc-dot').forEach((d, i) => d.classList.toggle('active', i === cur));
+    }
+    document.getElementById('tcPrev').addEventListener('click', () => go(cur - 1));
+    document.getElementById('tcNext').addEventListener('click', () => go(cur + 1));
+  }
+
+  // Lightboxes
+  document.querySelectorAll('.tc-more').forEach(btn =>
+    btn.addEventListener('click', () => document.getElementById(btn.dataset.lb).classList.add('open'))
+  );
+  document.querySelectorAll('.t-lb-close').forEach(btn =>
+    btn.addEventListener('click', () => btn.closest('.t-lightbox').classList.remove('open'))
+  );
+  document.querySelectorAll('.t-lightbox').forEach(lb =>
+    lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); })
+  );
 
 </script>
 </body>
