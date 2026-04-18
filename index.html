@@ -226,7 +226,7 @@
     .tc-more:hover { opacity: 0.65; }
     .tc-attr {
       display: block; font-size: 0.62rem;
-      letter-spacing: 0.2em; text-transform: uppercase; color: var(--td);
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--acc);
     }
     .tc-nav {
       display: flex; align-items: center;
@@ -629,10 +629,10 @@
   const tcDots  = document.getElementById('tcDots');
   if (tcTrack) {
     const tcCards = tcTrack.querySelectorAll('.tc-card');
-    let cur = 0;
+    let cur = 1;
     tcCards.forEach((_, i) => {
       const d = document.createElement('button');
-      d.className = 'tc-dot' + (i === 0 ? ' active' : '');
+      d.className = 'tc-dot' + (i === 1 ? ' active' : '');
       d.addEventListener('click', () => go(i));
       tcDots.appendChild(d);
     });
@@ -641,6 +641,7 @@
       tcTrack.style.transform = 'translateX(-' + (cur * 100) + '%)';
       tcDots.querySelectorAll('.tc-dot').forEach((d, i) => d.classList.toggle('active', i === cur));
     }
+    tcTrack.style.transform = 'translateX(-100%)';
     document.getElementById('tcPrev').addEventListener('click', () => go(cur - 1));
     document.getElementById('tcNext').addEventListener('click', () => go(cur + 1));
   }
