@@ -707,8 +707,22 @@
       </div>
 
       <div style="display:flex;flex-direction:column;gap:0.4rem;">
-        <label style="font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink2);">Phone Number</label>
-        <input type="tel" name="phone" required placeholder="Your phone number" style="
+        <label style="font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink2);">Email Address</label>
+        <input type="email" name="email" required placeholder="your@email.com" style="
+          background:#fff;
+          border:1px solid rgba(0,0,0,0.15);
+          padding:0.9rem 1.1rem;
+          font-family:'Jost',sans-serif;
+          font-size:0.9rem;
+          color:var(--ink);
+          outline:none;
+          transition:border-color 0.2s;
+        " onfocus="this.style.borderColor='var(--acc)'" onblur="this.style.borderColor='rgba(0,0,0,0.15)'">
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:0.4rem;">
+        <label style="font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink2);">Phone Number <span style="font-size:0.65rem;opacity:0.55;letter-spacing:0.1em;">(optional)</span></label>
+        <input type="tel" name="phone" placeholder="Your phone number" style="
           background:#fff;
           border:1px solid rgba(0,0,0,0.15);
           padding:0.9rem 1.1rem;
