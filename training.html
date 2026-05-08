@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reiki Training — Amethyst Healing Rooms</title>
   <meta name="description" content="Learn Usui Reiki with Janet Clifford in Cleckheaton. All levels from beginner to Reiki Master. Awaken the healer within you.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.amethysthealingrooms.com/training.html">
+  <meta property="og:title" content="Reiki Training — Amethyst Healing Rooms">
+  <meta property="og:description" content="Learn Usui Reiki with Janet Clifford. All levels from beginner to Reiki Master Teacher. Small groups, personal guidance, West Yorkshire.">
+  <meta property="og:image" content="https://www.amethysthealingrooms.com/657449893_1251848930348039_2464343206332712562_n.jpg">
+  <meta property="og:site_name" content="Amethyst Healing Rooms">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Reiki Training — Amethyst Healing Rooms">
+  <meta name="twitter:description" content="Learn Usui Reiki with Janet Clifford. All levels from beginner to Reiki Master Teacher. Small groups, personal guidance, West Yorkshire.">
+  <meta name="twitter:image" content="https://www.amethysthealingrooms.com/657449893_1251848930348039_2464343206332712562_n.jpg">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -255,7 +265,7 @@
     <li><a href="community.html">Community</a></li>
     <li><a href="training.html" class="active">Training</a></li>
   </ul>
-  <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="nav-cta">Enquire Now</a>
+  <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener noreferrer" class="nav-cta">Enquire Now</a>
   <button class="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
@@ -461,7 +471,7 @@
         understand where you have been and where you are going.
       </p>
       <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:0.75rem;">
-        <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="btn-solid">Enquire about training</a>
+        <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener noreferrer" class="btn-solid">Enquire about training</a>
         <a href="community.html" class="btn-outline">Meet the community</a>
       </div>
     </div>
@@ -478,7 +488,7 @@
       and which level is right for where you are now.
     </p>
     <div class="cta-btns rv d3">
-      <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="btn-solid">Enquire on Facebook</a>
+      <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener noreferrer" class="btn-solid">Enquire on Facebook</a>
       <a href="sessions.html" class="btn-outline">Explore all sessions</a>
     </div>
   </div>
@@ -508,8 +518,8 @@
     <nav class="footer-nav">
       <h4>Connect</h4>
       <ul>
-        <li><a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener">Facebook</a></li>
-        <li><a href="https://www.instagram.com/sham69" target="_blank" rel="noopener">Instagram: @sham69</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href="https://www.instagram.com/sham69" target="_blank" rel="noopener noreferrer">Instagram: @sham69</a></li>
         <li><a href="#" style="cursor:default;">Cleckheaton, BD12 7HG</a></li>
       </ul>
     </nav>
@@ -525,6 +535,27 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08 });
   document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  // Mobile navigation
+  const hamburger = document.querySelector('.hamburger');
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('nav-open');
+      hamburger.classList.toggle('open', isOpen);
+    });
+    document.addEventListener('click', e => {
+      if (!e.target.closest('#nav') && nav.classList.contains('nav-open')) {
+        nav.classList.remove('nav-open');
+        hamburger.classList.remove('open');
+      }
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        nav.classList.remove('nav-open');
+        hamburger.classList.remove('open');
+      }
+    });
+  }
 </script>
 </body>
 </html>

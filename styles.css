@@ -299,3 +299,67 @@ footer {
   .hamburger { display: flex; }
   .footer-inner { grid-template-columns: 1fr; }
 }
+
+/* ===== HAMBURGER ANIMATION ===== */
+.hamburger span { transition: transform 0.28s ease, opacity 0.2s ease; }
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* ===== MOBILE NAV OPEN STATE ===== */
+@media (max-width: 768px) {
+  #nav.nav-open {
+    flex-wrap: wrap;
+    background: rgba(11,8,23,0.97) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding-bottom: 1.5rem;
+  }
+  #nav.nav-open .nav-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--acc-dim);
+    order: 10;
+  }
+  #nav.nav-open .nav-links a {
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+  }
+  #nav.nav-open .nav-cta {
+    display: inline-block;
+    order: 11;
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  /* iOS: prevent auto-zoom on input focus (must be >= 16px) */
+  input, textarea, select { font-size: 16px !important; }
+
+  /* Touch targets — carousel dots */
+  .tc-dot {
+    padding: 10px;
+    margin: -10px;
+  }
+
+  /* Touch target — lightbox close */
+  .t-lb-close { padding: 12px; }
+
+  /* Lightbox scroll on small screens */
+  .t-lb-inner {
+    max-height: 88vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ===== HOVER: TOUCH DEVICE FIXES ===== */
+/* Prevent sticky hover states on tap */
+@media (hover: none) {
+  .svc-card:hover .svc-bg { transform: none; filter: brightness(0.38); }
+  .session-row:hover .session-img-bg { transform: none; }
+  .session-row:hover .session-text { background: var(--deep); }
+}

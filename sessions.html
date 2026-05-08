@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sessions — Amethyst Healing Rooms</title>
   <meta name="description" content="Reiki, sound healing, meditation and Usui Reiki training with Janet Clifford in Cleckheaton, West Yorkshire.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.amethysthealingrooms.com/sessions.html">
+  <meta property="og:title" content="Sessions — Amethyst Healing Rooms">
+  <meta property="og:description" content="Reiki, sound healing, meditation and Usui Reiki training with Janet Clifford in Cleckheaton, West Yorkshire.">
+  <meta property="og:image" content="https://www.amethysthealingrooms.com/657449893_1251848930348039_2464343206332712562_n.jpg">
+  <meta property="og:site_name" content="Amethyst Healing Rooms">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sessions — Amethyst Healing Rooms">
+  <meta name="twitter:description" content="Reiki, sound healing, meditation and Usui Reiki training with Janet Clifford in Cleckheaton, West Yorkshire.">
+  <meta name="twitter:image" content="https://www.amethysthealingrooms.com/657449893_1251848930348039_2464343206332712562_n.jpg">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -259,7 +269,7 @@
     <li><a href="sessions.html" class="active">Sessions</a></li>
     <li><a href="community.html">Community</a></li>
   </ul>
-  <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="nav-cta">Book a Session</a>
+  <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener noreferrer" class="nav-cta">Book a Session</a>
   <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
@@ -380,7 +390,7 @@
       <blockquote class="training-pull">"Im also a Reiki master teacher teaching Usui reiki and this is what I love doing the most."</blockquote>
       <p class="training-body">Janet teaches Usui Reiki at all levels. Passing on this gift and watching what happens when people receive their attunement is what drives her most. She describes it as helping people remember something that was always in them.</p>
       <p class="training-body">Many of her students go on to practise reiki themselves, several becoming practitioners in their own right and joining the wider Amethyst community.</p>
-      <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="btn-outline-dark">Enquire about training</a>
+      <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener noreferrer" class="btn-outline-dark">Enquire about training</a>
     </div>
   </div>
 </section>
@@ -476,7 +486,7 @@
     <p>Reach out via Facebook to discuss what session is right for you, or to check dates for the monthly groups.</p>
   </div>
   <div class="rv d1" style="display:flex;gap:1rem;flex-wrap:wrap;flex-shrink:0;">
-    <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener" class="btn-solid">Book via Facebook</a>
+    <a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener noreferrer" class="btn-solid">Book via Facebook</a>
     <a href="community.html" class="btn-outline">The Community</a>
   </div>
 </div>
@@ -500,8 +510,8 @@
     <nav class="footer-nav">
       <h4>Connect</h4>
       <ul>
-        <li><a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener">Facebook</a></li>
-        <li><a href="https://www.instagram.com/sham69" target="_blank" rel="noopener">Instagram: @sham69</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href="https://www.instagram.com/sham69" target="_blank" rel="noopener noreferrer">Instagram: @sham69</a></li>
         <li><span style="font-size:0.86rem;color:var(--ink2);">Cleckheaton, BD12 7HG</span></li>
       </ul>
     </nav>
@@ -535,6 +545,27 @@
       }
     });
   });
+
+  // Mobile navigation
+  const hamburger = document.querySelector('.hamburger');
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('nav-open');
+      hamburger.classList.toggle('open', isOpen);
+    });
+    document.addEventListener('click', e => {
+      if (!e.target.closest('#nav') && nav.classList.contains('nav-open')) {
+        nav.classList.remove('nav-open');
+        hamburger.classList.remove('open');
+      }
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        nav.classList.remove('nav-open');
+        hamburger.classList.remove('open');
+      }
+    });
+  }
 </script>
 </body>
 </html>

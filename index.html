@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Amethyst Healing Rooms — Janet Clifford · Reiki and Sound Healing · Cleckheaton</title>
   <meta name="description" content="A place where everyone can come together through the energy that connects us all. Reiki, sound healing and community in Cleckheaton, West Yorkshire.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.amethysthealingrooms.com/">
+  <meta property="og:title" content="Amethyst Healing Rooms — Reiki &amp; Sound Healing, Cleckheaton">
+  <meta property="og:description" content="A place where everyone can come together through the energy that connects us all. Reiki, sound healing and community in Cleckheaton, West Yorkshire.">
+  <meta property="og:image" content="https://www.amethysthealingrooms.com/657449893_1251848930348039_2464343206332712562_n.jpg">
+  <meta property="og:site_name" content="Amethyst Healing Rooms">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Amethyst Healing Rooms — Reiki &amp; Sound Healing, Cleckheaton">
+  <meta name="twitter:description" content="A place where everyone can come together through the energy that connects us all. Reiki, sound healing and community in Cleckheaton, West Yorkshire.">
+  <meta name="twitter:image" content="https://www.amethysthealingrooms.com/657449893_1251848930348039_2464343206332712562_n.jpg">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -301,6 +311,10 @@
     }
     @media (max-width: 480px) {
       .svc-grid { grid-template-columns: 1fr; }
+    }
+    /* iOS: background-attachment:fixed is broken on Safari/WebKit */
+    @media (max-width: 1024px) {
+      #vision { background-attachment: scroll; }
     }
   </style>
 </head>
@@ -681,8 +695,8 @@
     <nav class="footer-nav">
       <h4>Connect</h4>
       <ul>
-        <li><a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener">Facebook</a></li>
-        <li><a href="https://www.instagram.com/sham69" target="_blank" rel="noopener">Instagram: @sham69</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=100086459901449" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href="https://www.instagram.com/sham69" target="_blank" rel="noopener noreferrer">Instagram: @sham69</a></li>
         <li><span style="font-size:0.86rem;color:var(--ink2);">Cleckheaton, BD12 7HG</span></li>
       </ul>
     </nav>
@@ -727,6 +741,27 @@
   document.querySelectorAll('.t-lightbox').forEach(lb =>
     lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); })
   );
+
+  // Mobile navigation
+  const hamburger = document.querySelector('.hamburger');
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('nav-open');
+      hamburger.classList.toggle('open', isOpen);
+    });
+    document.addEventListener('click', e => {
+      if (!e.target.closest('#nav') && nav.classList.contains('nav-open')) {
+        nav.classList.remove('nav-open');
+        hamburger.classList.remove('open');
+      }
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        nav.classList.remove('nav-open');
+        hamburger.classList.remove('open');
+      }
+    });
+  }
 
 </script>
 </body>
